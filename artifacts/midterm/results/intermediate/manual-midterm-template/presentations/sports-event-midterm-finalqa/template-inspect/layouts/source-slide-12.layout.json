@@ -1,0 +1,720 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/4fu18jqh",
+    "id": "4fu18jqh",
+    "slide": 13,
+    "layoutId": "/ppt/slideLayouts/slideLayout12.xml",
+    "layoutType": "title",
+    "masterLayoutId": "/ppt/slideMasters/slideMaster2.xml",
+    "backgroundColor": "rgba(255, 255, 255, 1)",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "Office",
+    "colors": {
+      "accent1": "#4472C4",
+      "accent2": "#ED7D31",
+      "accent3": "#A5A5A5",
+      "accent4": "#FFC000",
+      "accent5": "#5B9BD5",
+      "accent6": "#70AD47",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#44546A",
+      "lt2": "#E7E6E6",
+      "hlink": "#0563C1",
+      "folHlink": "#954F72"
+    },
+    "fontScheme": {
+      "name": "Office",
+      "majorFont": {
+        "latinTypeface": "Arial"
+      },
+      "minorFont": {
+        "latinTypeface": "Arial"
+      }
+    },
+    "typefaces": [
+      "Arial",
+      "Noto Sans SC",
+      "微软雅黑"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "/ppt/slideLayouts/slideLayout12.xml",
+      "type": "title",
+      "parentLayoutId": "/ppt/slideMasters/slideMaster2.xml",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "/ppt/slideMasters/slideMaster2.xml",
+      "type": "master",
+      "backgroundColor": "rgba(255, 255, 255, 1)",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/crmhk3q5",
+      "id": "10",
+      "name": "Picture 2",
+      "bbox": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "contentType": "image/png",
+      "imageCrop": {
+        "left": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0
+      },
+      "asset": {
+        "assetId": "/ppt/media/image13.png",
+        "contentType": "image/png",
+        "byteLength": 346432
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image13.png",
+        "contentType": "image/png",
+        "byteLength": 346432
+      }
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/lszqtcj6",
+      "id": "3",
+      "name": "AutoShape 3",
+      "bbox": [
+        162.67,
+        160,
+        266.67,
+        80
+      ],
+      "geometry": "rect",
+      "text": "PART 03",
+      "textPreview": "PART 03",
+      "resolvedFontSize": 18.67,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "vertical": 1,
+        "fontSize": 18.67,
+        "typeface": "Arial",
+        "color": "#000000",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "textTransform": "none",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "PART 03"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "PART 03",
+          "marginLeft": 0,
+          "indent": 0,
+          "lineSpacingPercent": 125000,
+          "resolvedTextStyle": {
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "PART 03",
+              "fontSize": 53.33,
+              "typeface": "Arial",
+              "color": "#595959",
+              "bold": true
+            }
+          ],
+          "spaceBefore": 0,
+          "spaceAfter": 0
+        }
+      ],
+      "lineWidth": 1.33
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/adsji5sn",
+      "id": "4",
+      "name": "AutoShape 4",
+      "bbox": [
+        162.67,
+        253.33,
+        80,
+        8
+      ],
+      "geometry": "roundRect",
+      "resolvedFontSize": 18.67,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "vertical": 1,
+        "fontSize": 18.67,
+        "typeface": "Arial",
+        "color": "#000000",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "textTransform": "none",
+        "wrap": "square",
+        "insets": {
+          "top": 6.67,
+          "right": 6.67,
+          "bottom": 6.67,
+          "left": 6.67
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "rgba(154, 0, 1, 1)",
+      "lineWidth": 2.67
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/3ylc7u54",
+      "id": "5",
+      "name": "AutoShape 5",
+      "bbox": [
+        162.67,
+        293.33,
+        933.33,
+        106.67
+      ],
+      "geometry": "rect",
+      "text": "回测设定与实验规则",
+      "textPreview": "回测设定与实验规则",
+      "resolvedFontSize": 18.67,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "vertical": 1,
+        "fontSize": 18.67,
+        "typeface": "Arial",
+        "color": "#000000",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "textTransform": "none",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "回测设定与实验规则"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "回测设定与实验规则",
+          "marginLeft": 0,
+          "indent": 0,
+          "lineSpacingPercent": 125000,
+          "resolvedTextStyle": {
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "回测设定与实验规则",
+              "fontSize": 58.67,
+              "typeface": "微软雅黑",
+              "color": "#9A0001",
+              "bold": true
+            }
+          ],
+          "spaceBefore": 0,
+          "spaceAfter": 0
+        }
+      ],
+      "lineWidth": 1.33
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/sji5snel",
+      "id": "6",
+      "name": "AutoShape 6",
+      "bbox": [
+        158.67,
+        426.67,
+        533.33,
+        240
+      ],
+      "geometry": "roundRect",
+      "resolvedFontSize": 18.67,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "vertical": 1,
+        "fontSize": 18.67,
+        "typeface": "Arial",
+        "color": "#000000",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "textTransform": "none",
+        "wrap": "square",
+        "insets": {
+          "top": 6.67,
+          "right": 6.67,
+          "bottom": 6.67,
+          "left": 6.67
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "rgba(255, 255, 255, 0.95)",
+      "lineColor": "rgba(220, 220, 220, 1)",
+      "lineWidth": 1.33
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/h4byhgn2",
+      "id": "7",
+      "name": "AutoShape 7",
+      "bbox": [
+        185.33,
+        446.67,
+        480,
+        200
+      ],
+      "geometry": "rect",
+      "text": "▍ 回测设定\n• 回测事件：2022世界杯、2024欧洲杯、2024巴黎奥运会• 股票池：10只A股体育事件候选标的\n• 交易窗口：赛前60天进入，赛前10天退出• 成本约束：佣金、印花税、滑点、100股整数手\n▍ 系统规则事件库 → 证据核验 → 因子评分 → 参数搜索 → 组合约束 → 回测日志",
+      "textPreview": "▍ 回测设定 | • 回测事件：2022世界杯、2024欧洲杯、2024巴黎奥运会• 股票池：10只A股体育事件候选标的 | • 交易窗口：赛前60天进入，赛前10天退出• 成本约束：佣金、印花税、滑点、100股整数手 | ▍ 系统规则事件库 → 证据核验 → 因子评分 →...",
+      "resolvedFontSize": 18.67,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "vertical": 1,
+        "fontSize": 18.67,
+        "typeface": "Arial",
+        "color": "#000000",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "textTransform": "none",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 7,
+        "lines": [
+          {
+            "index": 1,
+            "text": "▍ 回测设定"
+          },
+          {
+            "index": 2,
+            "text": "• 回测事件：2022世界杯、2024欧洲杯、2024巴黎奥运会•"
+          },
+          {
+            "index": 3,
+            "text": "股票池：10只A股体育事件候选标的"
+          },
+          {
+            "index": 4,
+            "text": "• 交易窗口：赛前60天进入，赛前10天退出•"
+          },
+          {
+            "index": 5,
+            "text": "成本约束：佣金、印花税、滑点、100股整数手"
+          },
+          {
+            "index": 6,
+            "text": "▍ 系统规则事件库 → 证据核验 → 因子评分 → 参数搜索 →"
+          },
+          {
+            "index": 7,
+            "text": "组合约束 → 回测日志"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "▍ 回测设定",
+          "marginLeft": 0,
+          "indent": 0,
+          "lineSpacingPercent": 117000,
+          "resolvedTextStyle": {
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "▍ 回测设定",
+              "fontSize": 24,
+              "typeface": "Noto Sans SC",
+              "color": "#9A0001",
+              "bold": true
+            }
+          ],
+          "spaceBefore": 0,
+          "spaceAfter": 0
+        },
+        {
+          "index": 2,
+          "text": "• 回测事件：2022世界杯、2024欧洲杯、2024巴黎奥运会• 股票池：10只A股体育事件候选标的",
+          "marginLeft": 0,
+          "indent": 0,
+          "lineSpacingPercent": 117000,
+          "resolvedTextStyle": {
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "• 回测事件：2022世界杯、2024欧洲杯、2024巴黎奥运会",
+              "fontSize": 17.33,
+              "typeface": "Noto Sans SC",
+              "color": "#333333",
+              "bold": true
+            },
+            {
+              "index": 2,
+              "text": "• 股票池：10只A股体育事件候选标的",
+              "fontSize": 17.33,
+              "typeface": "Noto Sans SC",
+              "color": "#505050"
+            }
+          ],
+          "spaceBefore": 0,
+          "spaceAfter": 0
+        },
+        {
+          "index": 3,
+          "text": "• 交易窗口：赛前60天进入，赛前10天退出• 成本约束：佣金、印花税、滑点、100股整数手",
+          "marginLeft": 0,
+          "indent": 0,
+          "lineSpacingPercent": 117000,
+          "resolvedTextStyle": {
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "• 交易窗口：赛前60天进入，赛前10天退出",
+              "fontSize": 17.33,
+              "typeface": "Noto Sans SC",
+              "color": "#333333",
+              "bold": true
+            },
+            {
+              "index": 2,
+              "text": "• 成本约束：佣金、印花税、滑点、100股整数手",
+              "fontSize": 17.33,
+              "typeface": "Noto Sans SC",
+              "color": "#505050"
+            }
+          ],
+          "spaceBefore": 0,
+          "spaceAfter": 0
+        },
+        {
+          "index": 4,
+          "text": "▍ 系统规则事件库 → 证据核验 → 因子评分 → 参数搜索 → 组合约束 → 回测日志",
+          "marginLeft": 0,
+          "indent": 0,
+          "lineSpacingPercent": 117000,
+          "resolvedTextStyle": {
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "▍ 系统规则",
+              "fontSize": 17.33,
+              "typeface": "Noto Sans SC",
+              "color": "#333333",
+              "bold": true
+            },
+            {
+              "index": 2,
+              "text": "事件库 → 证据核验 → 因子评分 → 参数搜索 → 组合约束 → 回测日志",
+              "fontSize": 17.33,
+              "typeface": "Noto Sans SC",
+              "color": "#505050"
+            }
+          ],
+          "spaceBefore": 0,
+          "spaceAfter": 0
+        }
+      ],
+      "lineWidth": 1.33
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ap4r65wj",
+      "id": "8",
+      "name": "AutoShape 8",
+      "bbox": [
+        706.67,
+        426.67,
+        520,
+        240
+      ],
+      "geometry": "roundRect",
+      "resolvedFontSize": 18.67,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "vertical": 1,
+        "fontSize": 18.67,
+        "typeface": "Arial",
+        "color": "#000000",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "textTransform": "none",
+        "wrap": "square",
+        "insets": {
+          "top": 6.67,
+          "right": 6.67,
+          "bottom": 6.67,
+          "left": 6.67
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "rgba(35, 40, 48, 1)",
+      "lineWidth": 2.67
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/za1gvy90",
+      "id": "9",
+      "name": "AutoShape 9",
+      "bbox": [
+        726.67,
+        440,
+        480,
+        213.33
+      ],
+      "geometry": "rect",
+      "text": "参数不是凭空设定，而是通过历史事件和走步验证选择。\n\n\n▍ 成本设置\n佣金0.03%，最低5元；卖出印花税0.05%；滑点按流动性分层估计。\n▍ 市场限制\n仅做多、A股T+1、涨跌停、停牌过滤、单股与行业仓位上限。\n",
+      "textPreview": "参数不是凭空设定，而是通过历史事件和走步验证选择。 |  |  | ▍ 成本设置 | 佣金0.03%，最低5元；卖出印花税0.05%；滑点按流动性分层估计。 | ▍ 市场限制 | 仅做多、A股T+1、涨跌停、停牌过滤、单股与行业仓位上限。 |",
+      "resolvedFontSize": 18.67,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "vertical": 1,
+        "fontSize": 18.67,
+        "typeface": "Arial",
+        "color": "#000000",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "textTransform": "none",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 8,
+        "lines": [
+          {
+            "index": 1,
+            "text": "参数不是凭空设定，而是通过历史事件和走步验证选择。"
+          },
+          {
+            "index": 2,
+            "text": ""
+          },
+          {
+            "index": 3,
+            "text": ""
+          },
+          {
+            "index": 4,
+            "text": "▍ 成本设置"
+          },
+          {
+            "index": 5,
+            "text": "佣金0.03%，最低5元；卖出印花税0.05%；滑点按流动性分层估计。"
+          },
+          {
+            "index": 6,
+            "text": "▍ 市场限制"
+          },
+          {
+            "index": 7,
+            "text": "仅做多、A股T+1、涨跌停、停牌过滤、单股与行业仓位上限。"
+          },
+          {
+            "index": 8,
+            "text": ""
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "参数不是凭空设定，而是通过历史事件和走步验证选择。",
+          "marginLeft": 0,
+          "indent": 0,
+          "lineSpacingPercent": 100000,
+          "resolvedTextStyle": {
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "参数不是凭空设定，而是通过历史事件和走步验证选择。",
+              "fontSize": 18.67,
+              "typeface": "Arial",
+              "color": "#FFC60B",
+              "bold": true
+            }
+          ],
+          "spaceBefore": 0,
+          "spaceAfter": 0
+        },
+        {
+          "index": 2,
+          "text": "\n\n▍ 成本设置\n佣金0.03%，最低5元；卖出印花税0.05%；滑点按流动性分层估计。\n▍ 市场限制\n仅做多、A股T+1、涨跌停、停牌过滤、单股与行业仓位上限。\n",
+          "marginLeft": 0,
+          "indent": 0,
+          "lineSpacingPercent": 100000,
+          "resolvedTextStyle": {
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 2,
+              "text": "\n",
+              "alignment": "left"
+            },
+            {
+              "index": 4,
+              "text": "\n",
+              "alignment": "left"
+            },
+            {
+              "index": 5,
+              "text": "▍ 成本设置",
+              "fontSize": 14.67,
+              "typeface": "Arial",
+              "color": "#C8C8C8"
+            },
+            {
+              "index": 6,
+              "text": "\n",
+              "alignment": "left"
+            },
+            {
+              "index": 7,
+              "text": "佣金0.03%，最低5元；卖出印花税0.05%；滑点按流动性分层估计。",
+              "fontSize": 14.67,
+              "typeface": "Arial",
+              "color": "#C8C8C8"
+            },
+            {
+              "index": 8,
+              "text": "\n",
+              "alignment": "left"
+            },
+            {
+              "index": 9,
+              "text": "▍ 市场限制",
+              "fontSize": 14.67,
+              "typeface": "Arial",
+              "color": "#C8C8C8"
+            },
+            {
+              "index": 10,
+              "text": "\n",
+              "alignment": "left"
+            },
+            {
+              "index": 11,
+              "text": "仅做多、A股T+1、涨跌停、停牌过滤、单股与行业仓位上限。",
+              "fontSize": 14.67,
+              "typeface": "Arial",
+              "color": "#C8C8C8"
+            },
+            {
+              "index": 12,
+              "text": "\n",
+              "alignment": "left"
+            }
+          ],
+          "spaceBefore": 0,
+          "spaceAfter": 0
+        }
+      ],
+      "lineWidth": 1.33
+    }
+  ],
+  "composeRuns": []
+}

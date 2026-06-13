@@ -1,0 +1,182 @@
+[
+  {
+    "ticker": "600060.SH",
+    "sina_symbol": "sh600060",
+    "name": "海信视像",
+    "industry": "显示设备",
+    "board": "main",
+    "base_exposure": 0.82,
+    "relation_types": ["display_device", "sports_marketing"],
+    "evidence": [
+      {
+        "source_url": "https://www.hisense.com/",
+        "source_type": "company_website",
+        "published_at": "2026-05-26",
+        "retrieved_at": "2026-05-26T15:30:00+08:00",
+        "claim": "公司主营业务与显示设备及体育营销链条相关。"
+      }
+    ]
+  },
+  {
+    "ticker": "002878.SZ",
+    "sina_symbol": "sz002878",
+    "name": "元隆雅图",
+    "industry": "IP衍生品",
+    "board": "main",
+    "base_exposure": 0.76,
+    "relation_types": ["licensed_merchandise", "ip_products"],
+    "evidence": [
+      {
+        "source_url": "https://www.ylyato.com/",
+        "source_type": "company_website",
+        "published_at": "2026-05-26",
+        "retrieved_at": "2026-05-26T15:30:00+08:00",
+        "claim": "公司业务与礼赠品、IP衍生品和营销服务相关。"
+      }
+    ]
+  },
+  {
+    "ticker": "002181.SZ",
+    "sina_symbol": "sz002181",
+    "name": "粤传媒",
+    "industry": "传媒彩票",
+    "board": "main",
+    "base_exposure": 0.68,
+    "relation_types": ["media", "lottery_attention"],
+    "evidence": [
+      {
+        "source_url": "https://www.gdcm.com.cn/",
+        "source_type": "company_website",
+        "published_at": "2026-05-26",
+        "retrieved_at": "2026-05-26T15:30:00+08:00",
+        "claim": "公司业务与传媒内容、广告和体育关注度链条相关。"
+      }
+    ]
+  },
+  {
+    "ticker": "605099.SH",
+    "sina_symbol": "sh605099",
+    "name": "共创草坪",
+    "industry": "体育设施",
+    "board": "main",
+    "base_exposure": 0.58,
+    "relation_types": ["sports_facility", "artificial_turf"],
+    "evidence": [
+      {
+        "source_url": "https://www.ccgrass.com/",
+        "source_type": "company_website",
+        "published_at": "2026-05-26",
+        "retrieved_at": "2026-05-26T15:30:00+08:00",
+        "claim": "公司业务与人造草坪及体育设施链条相关。"
+      }
+    ]
+  },
+  {
+    "ticker": "605299.SH",
+    "sina_symbol": "sh605299",
+    "name": "舒华体育",
+    "industry": "体育消费",
+    "board": "main",
+    "base_exposure": 0.54,
+    "relation_types": ["sports_consumption", "fitness_equipment"],
+    "evidence": [
+      {
+        "source_url": "https://www.shuhua.com/",
+        "source_type": "company_website",
+        "published_at": "2026-05-26",
+        "retrieved_at": "2026-05-26T15:30:00+08:00",
+        "claim": "公司业务与运动健身器材和体育消费链条相关。"
+      }
+    ]
+  },
+  {
+    "ticker": "600158.SH",
+    "sina_symbol": "sh600158",
+    "name": "中体产业",
+    "industry": "体育运营",
+    "board": "main",
+    "base_exposure": 0.62,
+    "relation_types": ["sports_operation", "sports_industry"],
+    "evidence": [
+      {
+        "source_url": "https://www.csig158.com/",
+        "source_type": "company_website",
+        "published_at": "2026-05-26",
+        "retrieved_at": "2026-05-26T15:30:00+08:00",
+        "claim": "公司名称和主营方向与体育产业运营链条相关。"
+      }
+    ]
+  },
+  {
+    "ticker": "000558.SZ",
+    "sina_symbol": "sz000558",
+    "name": "莱茵体育",
+    "industry": "体育运营",
+    "board": "main",
+    "base_exposure": 0.50,
+    "relation_types": ["sports_operation"],
+    "evidence": [
+      {
+        "source_url": "https://www.lander.com.cn/",
+        "source_type": "company_website",
+        "published_at": "2026-05-26",
+        "retrieved_at": "2026-05-26T15:30:00+08:00",
+        "claim": "公司业务名称与体育运营相关。"
+      }
+    ]
+  },
+  {
+    "ticker": "002858.SZ",
+    "sina_symbol": "sz002858",
+    "name": "力盛体育",
+    "industry": "体育赛事",
+    "board": "main",
+    "base_exposure": 0.48,
+    "relation_types": ["sports_events"],
+    "evidence": [
+      {
+        "source_url": "https://www.lishengsports.com/",
+        "source_type": "company_website",
+        "published_at": "2026-05-26",
+        "retrieved_at": "2026-05-26T15:30:00+08:00",
+        "claim": "公司业务与体育赛事运营相关。"
+      }
+    ]
+  },
+  {
+    "ticker": "300651.SZ",
+    "sina_symbol": "sz300651",
+    "name": "金陵体育",
+    "industry": "体育器材",
+    "board": "chi_next",
+    "base_exposure": 0.46,
+    "relation_types": ["sports_equipment"],
+    "evidence": [
+      {
+        "source_url": "https://www.jlsports.com/",
+        "source_type": "company_website",
+        "published_at": "2026-05-26",
+        "retrieved_at": "2026-05-26T15:30:00+08:00",
+        "claim": "公司业务与体育器材和体育场馆设备相关。"
+      }
+    ]
+  },
+  {
+    "ticker": "002587.SZ",
+    "sina_symbol": "sz002587",
+    "name": "奥拓电子",
+    "industry": "显示设备",
+    "board": "main",
+    "base_exposure": 0.42,
+    "relation_types": ["led_display", "venue_display"],
+    "evidence": [
+      {
+        "source_url": "https://www.aoto.com/",
+        "source_type": "company_website",
+        "published_at": "2026-05-26",
+        "retrieved_at": "2026-05-26T15:30:00+08:00",
+        "claim": "公司业务与 LED 显示及场馆显示链条相关。"
+      }
+    ]
+  }
+]

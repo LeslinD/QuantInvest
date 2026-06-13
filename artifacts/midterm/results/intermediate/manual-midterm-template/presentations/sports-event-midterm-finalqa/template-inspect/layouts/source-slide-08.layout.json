@@ -1,0 +1,1833 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/fu18jqh0",
+    "id": "fu18jqh0",
+    "slide": 9,
+    "layoutId": "/ppt/slideLayouts/slideLayout12.xml",
+    "layoutType": "title",
+    "masterLayoutId": "/ppt/slideMasters/slideMaster2.xml",
+    "backgroundColor": "rgba(255, 255, 255, 1)",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "Office",
+    "colors": {
+      "accent1": "#4472C4",
+      "accent2": "#ED7D31",
+      "accent3": "#A5A5A5",
+      "accent4": "#FFC000",
+      "accent5": "#5B9BD5",
+      "accent6": "#70AD47",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#44546A",
+      "lt2": "#E7E6E6",
+      "hlink": "#0563C1",
+      "folHlink": "#954F72"
+    },
+    "fontScheme": {
+      "name": "Office",
+      "majorFont": {
+        "latinTypeface": "Arial"
+      },
+      "minorFont": {
+        "latinTypeface": "Arial"
+      }
+    },
+    "typefaces": [
+      "Arial",
+      "Noto Sans SC",
+      "微软雅黑"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "/ppt/slideLayouts/slideLayout12.xml",
+      "type": "title",
+      "parentLayoutId": "/ppt/slideMasters/slideMaster2.xml",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "/ppt/slideMasters/slideMaster2.xml",
+      "type": "master",
+      "backgroundColor": "rgba(255, 255, 255, 1)",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/u9knih4b",
+      "id": "2",
+      "name": "AutoShape 2",
+      "bbox": [
+        1122.67,
+        46.67,
+        13.33,
+        13.33
+      ],
+      "geometry": "roundRect",
+      "resolvedFontSize": 18.67,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "vertical": 1,
+        "fontSize": 18.67,
+        "typeface": "Arial",
+        "color": "#000000",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "textTransform": "none",
+        "wrap": "square",
+        "insets": {
+          "top": 6.67,
+          "right": 6.67,
+          "bottom": 6.67,
+          "left": 6.67
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "rgba(154, 0, 1, 0.6)",
+      "lineWidth": 2.67
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/judg7ads",
+      "id": "3",
+      "name": "AutoShape 3",
+      "bbox": [
+        1149.33,
+        46.67,
+        13.33,
+        13.33
+      ],
+      "geometry": "roundRect",
+      "resolvedFontSize": 18.67,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "vertical": 1,
+        "fontSize": 18.67,
+        "typeface": "Arial",
+        "color": "#000000",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "textTransform": "none",
+        "wrap": "square",
+        "insets": {
+          "top": 6.67,
+          "right": 6.67,
+          "bottom": 6.67,
+          "left": 6.67
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "rgba(154, 0, 1, 0.6)",
+      "lineWidth": 2.67
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/c7u54zid",
+      "id": "4",
+      "name": "AutoShape 4",
+      "bbox": [
+        1176,
+        46.67,
+        13.33,
+        13.33
+      ],
+      "geometry": "roundRect",
+      "resolvedFontSize": 18.67,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "vertical": 1,
+        "fontSize": 18.67,
+        "typeface": "Arial",
+        "color": "#000000",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "textTransform": "none",
+        "wrap": "square",
+        "insets": {
+          "top": 6.67,
+          "right": 6.67,
+          "bottom": 6.67,
+          "left": 6.67
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "rgba(154, 0, 1, 0.6)",
+      "lineWidth": 2.67
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/1orytsvu",
+      "id": "5",
+      "name": "AutoShape 5",
+      "bbox": [
+        1202.67,
+        46.67,
+        13.33,
+        13.33
+      ],
+      "geometry": "roundRect",
+      "resolvedFontSize": 18.67,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "vertical": 1,
+        "fontSize": 18.67,
+        "typeface": "Arial",
+        "color": "#000000",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "textTransform": "none",
+        "wrap": "square",
+        "insets": {
+          "top": 6.67,
+          "right": 6.67,
+          "bottom": 6.67,
+          "left": 6.67
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "rgba(154, 0, 1, 0.6)",
+      "lineWidth": 2.67
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/u18jqh0f",
+      "id": "6",
+      "name": "AutoShape 6",
+      "bbox": [
+        1122.67,
+        73.33,
+        13.33,
+        13.33
+      ],
+      "geometry": "roundRect",
+      "resolvedFontSize": 18.67,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "vertical": 1,
+        "fontSize": 18.67,
+        "typeface": "Arial",
+        "color": "#000000",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "textTransform": "none",
+        "wrap": "square",
+        "insets": {
+          "top": 6.67,
+          "right": 6.67,
+          "bottom": 6.67,
+          "left": 6.67
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "rgba(154, 0, 1, 0.4)",
+      "lineWidth": 2.67
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/jm1cfa9w",
+      "id": "7",
+      "name": "AutoShape 7",
+      "bbox": [
+        1149.33,
+        73.33,
+        13.33,
+        13.33
+      ],
+      "geometry": "roundRect",
+      "resolvedFontSize": 18.67,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "vertical": 1,
+        "fontSize": 18.67,
+        "typeface": "Arial",
+        "color": "#000000",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "textTransform": "none",
+        "wrap": "square",
+        "insets": {
+          "top": 6.67,
+          "right": 6.67,
+          "bottom": 6.67,
+          "left": 6.67
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "rgba(154, 0, 1, 0.4)",
+      "lineWidth": 2.67
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/cvixczed",
+      "id": "8",
+      "name": "AutoShape 8",
+      "bbox": [
+        1176,
+        73.33,
+        13.33,
+        13.33
+      ],
+      "geometry": "roundRect",
+      "resolvedFontSize": 18.67,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "vertical": 1,
+        "fontSize": 18.67,
+        "typeface": "Arial",
+        "color": "#000000",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "textTransform": "none",
+        "wrap": "square",
+        "insets": {
+          "top": 6.67,
+          "right": 6.67,
+          "bottom": 6.67,
+          "left": 6.67
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "rgba(154, 0, 1, 0.4)",
+      "lineWidth": 2.67
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/5gbq1ory",
+      "id": "9",
+      "name": "AutoShape 9",
+      "bbox": [
+        1202.67,
+        73.33,
+        13.33,
+        13.33
+      ],
+      "geometry": "roundRect",
+      "resolvedFontSize": 18.67,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "vertical": 1,
+        "fontSize": 18.67,
+        "typeface": "Arial",
+        "color": "#000000",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "textTransform": "none",
+        "wrap": "square",
+        "insets": {
+          "top": 6.67,
+          "right": 6.67,
+          "bottom": 6.67,
+          "left": 6.67
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "rgba(154, 0, 1, 0.4)",
+      "lineWidth": 2.67
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/18jqh0fe",
+      "id": "10",
+      "name": "Connector 10",
+      "bbox": [
+        56,
+        90.67,
+        254.67,
+        1.33
+      ],
+      "geometry": "line",
+      "fillColor": "rgba(222, 224, 227, 1)",
+      "lineColor": "rgba(166, 166, 166, 1)",
+      "lineWidth": 1.33
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/8nqxs72x",
+      "id": "11",
+      "name": "Connector 11",
+      "bbox": [
+        56,
+        90.67,
+        61.35,
+        1.33
+      ],
+      "rotation": 0,
+      "geometry": "line",
+      "fillColor": "rgba(222, 224, 227, 1)",
+      "lineColor": "rgba(154, 0, 1, 1)",
+      "lineWidth": 4
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/j2t83itg",
+      "id": "12",
+      "name": "AutoShape 12",
+      "bbox": [
+        46.67,
+        670.67,
+        200,
+        33.33
+      ],
+      "geometry": "rect",
+      "text": "策略核心流程",
+      "textPreview": "策略核心流程",
+      "resolvedFontSize": 18.67,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "vertical": 1,
+        "fontSize": 18.67,
+        "typeface": "Arial",
+        "color": "#000000",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "textTransform": "none",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "策略核心流程"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "策略核心流程",
+          "marginLeft": 0,
+          "indent": 0,
+          "lineSpacingPercent": 125000,
+          "resolvedTextStyle": {
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "策略核心流程",
+              "fontSize": 16,
+              "typeface": "Noto Sans SC",
+              "color": "#808080"
+            }
+          ],
+          "spaceBefore": 0,
+          "spaceAfter": 0
+        }
+      ],
+      "lineWidth": 1.33
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/qh0fepkz",
+      "id": "13",
+      "name": "AutoShape 13",
+      "bbox": [
+        1000,
+        670.67,
+        200,
+        33.33
+      ],
+      "geometry": "rect",
+      "text": "PAGE 01",
+      "textPreview": "PAGE 01",
+      "resolvedFontSize": 18.67,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "vertical": 1,
+        "fontSize": 18.67,
+        "typeface": "Arial",
+        "color": "#000000",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "textTransform": "none",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "PAGE 01"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "PAGE 01",
+          "marginLeft": 0,
+          "indent": 0,
+          "lineSpacingPercent": 125000,
+          "resolvedTextStyle": {
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "PAGE 01",
+              "fontSize": 16,
+              "typeface": "Arial",
+              "color": "#808080"
+            }
+          ],
+          "spaceBefore": 0,
+          "spaceAfter": 0
+        }
+      ],
+      "lineWidth": 1.33
+    },
+    {
+      "order": 13,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/1w7mp0bi",
+      "id": "14",
+      "name": "AutoShape 14",
+      "bbox": [
+        46.67,
+        25.33,
+        1000,
+        65.33
+      ],
+      "geometry": "rect",
+      "text": "核心流程：事件识别与历史回溯",
+      "textPreview": "核心流程：事件识别与历史回溯",
+      "resolvedFontSize": 18.67,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "vertical": 1,
+        "fontSize": 18.67,
+        "typeface": "Arial",
+        "color": "#000000",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "textTransform": "none",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "核心流程：事件识别与历史回溯"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "核心流程：事件识别与历史回溯",
+          "marginLeft": 0,
+          "indent": 0,
+          "lineSpacingPercent": 125000,
+          "resolvedTextStyle": {
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "核心流程：事件识别与历史回溯",
+              "fontSize": 32,
+              "typeface": "微软雅黑",
+              "color": "#9A0001",
+              "bold": true
+            }
+          ],
+          "spaceBefore": 0,
+          "spaceAfter": 0
+        }
+      ],
+      "lineWidth": 1.33
+    },
+    {
+      "order": 14,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/8bat47y1",
+      "id": "15",
+      "name": "AutoShape 15",
+      "bbox": [
+        66.67,
+        146.67,
+        273.33,
+        480
+      ],
+      "geometry": "roundRect",
+      "resolvedFontSize": 18.67,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "vertical": 1,
+        "fontSize": 18.67,
+        "typeface": "Arial",
+        "color": "#000000",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "textTransform": "none",
+        "wrap": "square",
+        "insets": {
+          "top": 6.67,
+          "right": 6.67,
+          "bottom": 6.67,
+          "left": 6.67
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "rgba(249, 250, 251, 1)",
+      "lineColor": "rgba(229, 231, 235, 1)",
+      "lineWidth": 1.33
+    },
+    {
+      "order": 15,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/hk3q5o7q",
+      "id": "31",
+      "name": "Picture 16",
+      "bbox": [
+        153.33,
+        173.33,
+        93.33,
+        93.33
+      ],
+      "contentType": "image/png",
+      "asset": {
+        "assetId": "/ppt/media/image5.png",
+        "contentType": "image/png",
+        "byteLength": 1315
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image5.png",
+        "contentType": "image/png",
+        "byteLength": 1315
+      }
+    },
+    {
+      "order": 16,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/q5o7qpg3",
+      "id": "17",
+      "name": "AutoShape 17",
+      "bbox": [
+        80,
+        280,
+        246.67,
+        53.33
+      ],
+      "geometry": "rect",
+      "text": "步骤一：事件识别与筛选",
+      "textPreview": "步骤一：事件识别与筛选",
+      "resolvedFontSize": 18.67,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "vertical": 1,
+        "fontSize": 18.67,
+        "typeface": "Arial",
+        "color": "#000000",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "textTransform": "none",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "步骤一：事件识别与筛"
+          },
+          {
+            "index": 2,
+            "text": "选"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "步骤一：事件识别与筛选",
+          "marginLeft": 0,
+          "indent": 0,
+          "lineSpacingPercent": 125000,
+          "resolvedTextStyle": {
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "步骤一：事件识别与筛选",
+              "fontSize": 24,
+              "typeface": "微软雅黑",
+              "color": "#1F2329",
+              "bold": true
+            }
+          ],
+          "spaceBefore": 0,
+          "spaceAfter": 0
+        }
+      ],
+      "lineWidth": 1.33
+    },
+    {
+      "order": 17,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/1kre1w7m",
+      "id": "18",
+      "name": "AutoShape 18",
+      "bbox": [
+        80,
+        360,
+        246.67,
+        240
+      ],
+      "geometry": "rect",
+      "text": "● 确定性与可预测性：赛事日期、主题和信息来源必须可验证\n● 高关注度：能带来搜索、新闻、社媒和成交额升温\n● 经济影响力：与显示设备、体育设施、传媒、IP衍生品等链条相关\n● 时间窗口：必须存在赛前预热期，避免开幕后追高",
+      "textPreview": "● 确定性与可预测性：赛事日期、主题和信息来源必须可验证 | ● 高关注度：能带来搜索、新闻、社媒和成交额升温 | ● 经济影响力：与显示设备、体育设施、传媒、IP衍生品等链条相关 | ● 时间窗口：必须存在赛前预热期，避免开幕后追高",
+      "resolvedFontSize": 18.67,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "vertical": 1,
+        "fontSize": 18.67,
+        "typeface": "Arial",
+        "color": "#000000",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "textTransform": "none",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 12,
+        "lines": [
+          {
+            "index": 1,
+            "text": "● 确定性与可预测性："
+          },
+          {
+            "index": 2,
+            "text": "赛事日期、主题和信息来源必须可"
+          },
+          {
+            "index": 3,
+            "text": "验证"
+          },
+          {
+            "index": 4,
+            "text": "● 高关注度："
+          },
+          {
+            "index": 5,
+            "text": "能带来搜索、新闻、社媒和成交额"
+          },
+          {
+            "index": 6,
+            "text": "升温"
+          },
+          {
+            "index": 7,
+            "text": "● 经济影响力："
+          },
+          {
+            "index": 8,
+            "text": "与显示设备、体育设施、传媒、IP"
+          },
+          {
+            "index": 9,
+            "text": "衍生品等链条相关"
+          },
+          {
+            "index": 10,
+            "text": "● 时间窗口："
+          },
+          {
+            "index": 11,
+            "text": "必须存在赛前预热期，避免开幕后"
+          },
+          {
+            "index": 12,
+            "text": "追高"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "● 确定性与可预测性：赛事日期、主题和信息来源必须可验证",
+          "marginLeft": 0,
+          "indent": 0,
+          "lineSpacingPercent": 117000,
+          "resolvedTextStyle": {
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "● 确定性与可预测性：",
+              "fontSize": 16,
+              "typeface": "微软雅黑",
+              "color": "#505050",
+              "bold": true
+            },
+            {
+              "index": 2,
+              "text": "赛事日期、主题和信息来源必须可验证",
+              "fontSize": 16,
+              "typeface": "微软雅黑",
+              "color": "#646464"
+            }
+          ],
+          "spaceBefore": 0,
+          "spaceAfter": 0
+        },
+        {
+          "index": 2,
+          "text": "● 高关注度：能带来搜索、新闻、社媒和成交额升温",
+          "marginLeft": 0,
+          "indent": 0,
+          "lineSpacingPercent": 117000,
+          "resolvedTextStyle": {
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "● 高关注度：",
+              "fontSize": 16,
+              "typeface": "微软雅黑",
+              "color": "#505050",
+              "bold": true
+            },
+            {
+              "index": 2,
+              "text": "能带来搜索、新闻、社媒和成交额升温",
+              "fontSize": 16,
+              "typeface": "微软雅黑",
+              "color": "#646464"
+            }
+          ],
+          "spaceBefore": 0,
+          "spaceAfter": 0
+        },
+        {
+          "index": 3,
+          "text": "● 经济影响力：与显示设备、体育设施、传媒、IP衍生品等链条相关",
+          "marginLeft": 0,
+          "indent": 0,
+          "lineSpacingPercent": 117000,
+          "resolvedTextStyle": {
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "● 经济影响力：",
+              "fontSize": 16,
+              "typeface": "微软雅黑",
+              "color": "#505050",
+              "bold": true
+            },
+            {
+              "index": 2,
+              "text": "与显示设备、体育设施、传媒、IP衍生品等链条相关",
+              "fontSize": 16,
+              "typeface": "微软雅黑",
+              "color": "#646464"
+            }
+          ],
+          "spaceBefore": 0,
+          "spaceAfter": 0
+        },
+        {
+          "index": 4,
+          "text": "● 时间窗口：必须存在赛前预热期，避免开幕后追高",
+          "marginLeft": 0,
+          "indent": 0,
+          "lineSpacingPercent": 117000,
+          "resolvedTextStyle": {
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "● 时间窗口：",
+              "fontSize": 16,
+              "typeface": "微软雅黑",
+              "color": "#505050",
+              "bold": true
+            },
+            {
+              "index": 2,
+              "text": "必须存在赛前预热期，避免开幕后追高",
+              "fontSize": 16,
+              "typeface": "微软雅黑",
+              "color": "#646464"
+            }
+          ],
+          "spaceBefore": 0,
+          "spaceAfter": 0
+        }
+      ],
+      "lineWidth": 1.33
+    },
+    {
+      "order": 18,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/c3ylc7u5",
+      "id": "19",
+      "name": "AutoShape 19",
+      "bbox": [
+        366.67,
+        146.67,
+        273.33,
+        480
+      ],
+      "geometry": "roundRect",
+      "resolvedFontSize": 18.67,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "vertical": 1,
+        "fontSize": 18.67,
+        "typeface": "Arial",
+        "color": "#000000",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "textTransform": "none",
+        "wrap": "square",
+        "insets": {
+          "top": 6.67,
+          "right": 6.67,
+          "bottom": 6.67,
+          "left": 6.67
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "rgba(249, 250, 251, 1)",
+      "lineColor": "rgba(229, 231, 235, 1)",
+      "lineWidth": 1.33
+    },
+    {
+      "order": 19,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/6xkf6dcb",
+      "id": "32",
+      "name": "Picture 20",
+      "bbox": [
+        453.33,
+        173.33,
+        93.33,
+        93.33
+      ],
+      "contentType": "image/png",
+      "asset": {
+        "assetId": "/ppt/media/image7.png",
+        "contentType": "image/png",
+        "byteLength": 670
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image7.png",
+        "contentType": "image/png",
+        "byteLength": 670
+      }
+    },
+    {
+      "order": 20,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/hcrmhk3q",
+      "id": "21",
+      "name": "AutoShape 21",
+      "bbox": [
+        380,
+        280,
+        246.67,
+        53.33
+      ],
+      "geometry": "rect",
+      "text": "步骤二：历史数据回溯",
+      "textPreview": "步骤二：历史数据回溯",
+      "resolvedFontSize": 18.67,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "vertical": 1,
+        "fontSize": 18.67,
+        "typeface": "Arial",
+        "color": "#000000",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "textTransform": "none",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "步骤二：历史数据回溯"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "步骤二：历史数据回溯",
+          "marginLeft": 0,
+          "indent": 0,
+          "lineSpacingPercent": 125000,
+          "resolvedTextStyle": {
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "步骤二：历史数据回溯",
+              "fontSize": 24,
+              "typeface": "微软雅黑",
+              "color": "#1F2329",
+              "bold": true
+            }
+          ],
+          "spaceBefore": 0,
+          "spaceAfter": 0
+        }
+      ],
+      "lineWidth": 1.33
+    },
+    {
+      "order": 21,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/al87ed8b",
+      "id": "22",
+      "name": "AutoShape 22",
+      "bbox": [
+        380,
+        360,
+        246.67,
+        240
+      ],
+      "geometry": "rect",
+      "text": "▶ 板块表现分析：计算事件窗口收益、异常收益AR与累计异常收益CAR。\n▶ 龙头股识别：观察海信视像、中体产业、共创草坪等标的在事件前的反应。\n▶ 预期差验证：验证“赛前预热、临近兑现”的规律是否成立。",
+      "textPreview": "▶ 板块表现分析：计算事件窗口收益、异常收益AR与累计异常收益CAR。 | ▶ 龙头股识别：观察海信视像、中体产业、共创草坪等标的在事件前的反应。 | ▶ 预期差验证：验证“赛前预热、临近兑现”的规律是否成立。",
+      "resolvedFontSize": 18.67,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "vertical": 1,
+        "fontSize": 18.67,
+        "typeface": "Arial",
+        "color": "#000000",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "textTransform": "none",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 9,
+        "lines": [
+          {
+            "index": 1,
+            "text": "▶ 板块表现分析："
+          },
+          {
+            "index": 2,
+            "text": "计算事件窗口收益、异常收益AR与"
+          },
+          {
+            "index": 3,
+            "text": "累计异常收益CAR。"
+          },
+          {
+            "index": 4,
+            "text": "▶ 龙头股识别："
+          },
+          {
+            "index": 5,
+            "text": "观察海信视像、中体产业、共创草"
+          },
+          {
+            "index": 6,
+            "text": "坪等标的在事件前的反应。"
+          },
+          {
+            "index": 7,
+            "text": "▶ 预期差验证："
+          },
+          {
+            "index": 8,
+            "text": "验证“赛前预热、临近兑现”的规律"
+          },
+          {
+            "index": 9,
+            "text": "是否成立。"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "▶ 板块表现分析：计算事件窗口收益、异常收益AR与累计异常收益CAR。",
+          "marginLeft": 0,
+          "indent": 0,
+          "lineSpacingPercent": 125000,
+          "resolvedTextStyle": {
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "▶ 板块表现分析：",
+              "fontSize": 16,
+              "typeface": "微软雅黑",
+              "color": "#505050",
+              "bold": true
+            },
+            {
+              "index": 2,
+              "text": "计算事件窗口收益、异常收益AR与累计异常收益CAR。",
+              "fontSize": 16,
+              "typeface": "微软雅黑",
+              "color": "#646464"
+            }
+          ],
+          "spaceBefore": 0,
+          "spaceAfter": 0
+        },
+        {
+          "index": 2,
+          "text": "▶ 龙头股识别：观察海信视像、中体产业、共创草坪等标的在事件前的反应。",
+          "marginLeft": 0,
+          "indent": 0,
+          "lineSpacingPercent": 125000,
+          "resolvedTextStyle": {
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "▶ 龙头股识别：",
+              "fontSize": 16,
+              "typeface": "微软雅黑",
+              "color": "#505050",
+              "bold": true
+            },
+            {
+              "index": 2,
+              "text": "观察海信视像、中体产业、共创草坪等标的在事件前的反应。",
+              "fontSize": 16,
+              "typeface": "微软雅黑",
+              "color": "#646464"
+            }
+          ],
+          "spaceBefore": 0,
+          "spaceAfter": 0
+        },
+        {
+          "index": 3,
+          "text": "▶ 预期差验证：验证“赛前预热、临近兑现”的规律是否成立。",
+          "marginLeft": 0,
+          "indent": 0,
+          "lineSpacingPercent": 125000,
+          "resolvedTextStyle": {
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "▶ 预期差验证：",
+              "fontSize": 16,
+              "typeface": "微软雅黑",
+              "color": "#505050",
+              "bold": true
+            },
+            {
+              "index": 2,
+              "text": "验证“赛前预热、临近兑现”的规律是否成立。",
+              "fontSize": 16,
+              "typeface": "微软雅黑",
+              "color": "#646464"
+            }
+          ],
+          "spaceBefore": 0,
+          "spaceAfter": 0
+        }
+      ],
+      "lineWidth": 1.33
+    },
+    {
+      "order": 22,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/z61032ls",
+      "id": "23",
+      "name": "AutoShape 23",
+      "bbox": [
+        666.67,
+        146.67,
+        273.33,
+        480
+      ],
+      "geometry": "roundRect",
+      "resolvedFontSize": 18.67,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "vertical": 1,
+        "fontSize": 18.67,
+        "typeface": "Arial",
+        "color": "#000000",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "textTransform": "none",
+        "wrap": "square",
+        "insets": {
+          "top": 6.67,
+          "right": 6.67,
+          "bottom": 6.67,
+          "left": 6.67
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "rgba(255, 248, 248, 1)",
+      "lineColor": "rgba(154, 0, 1, 0.2)",
+      "lineWidth": 1.33
+    },
+    {
+      "order": 23,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/zed8v6ps",
+      "id": "33",
+      "name": "Picture 24",
+      "bbox": [
+        753.33,
+        173.33,
+        93.33,
+        93.33
+      ],
+      "contentType": "image/png",
+      "asset": {
+        "assetId": "/ppt/media/image9.png",
+        "contentType": "image/png",
+        "byteLength": 1035
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image9.png",
+        "contentType": "image/png",
+        "byteLength": 1035
+      }
+    },
+    {
+      "order": 24,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/h0fepkzu",
+      "id": "25",
+      "name": "AutoShape 25",
+      "bbox": [
+        680,
+        280,
+        246.67,
+        53.33
+      ],
+      "geometry": "rect",
+      "text": "历史复盘结论",
+      "textPreview": "历史复盘结论",
+      "resolvedFontSize": 18.67,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "vertical": 1,
+        "fontSize": 18.67,
+        "typeface": "Arial",
+        "color": "#000000",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "textTransform": "none",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "历史复盘结论"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "历史复盘结论",
+          "marginLeft": 0,
+          "indent": 0,
+          "lineSpacingPercent": 125000,
+          "resolvedTextStyle": {
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "历史复盘结论",
+              "fontSize": 24,
+              "typeface": "微软雅黑",
+              "color": "#9A0001",
+              "bold": true
+            }
+          ],
+          "spaceBefore": 0,
+          "spaceAfter": 0
+        }
+      ],
+      "lineWidth": 1.33
+    },
+    {
+      "order": 25,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/a9w3m94f",
+      "id": "26",
+      "name": "AutoShape 26",
+      "bbox": [
+        680,
+        373.33,
+        246.67,
+        213.33
+      ],
+      "geometry": "rect",
+      "text": "2022世界杯T-60至T-10窗口CAAR为\n26.54%\n，正CAR比例为\n90.00%",
+      "textPreview": "2022世界杯T-60至T-10窗口CAAR为 | 26.54% | ，正CAR比例为 | 90.00%",
+      "resolvedFontSize": 18.67,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "vertical": 1,
+        "fontSize": 18.67,
+        "typeface": "Arial",
+        "color": "#000000",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "textTransform": "none",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 5,
+        "lines": [
+          {
+            "index": 1,
+            "text": "2022世界杯T-60至T-10窗口CAA"
+          },
+          {
+            "index": 2,
+            "text": "R为"
+          },
+          {
+            "index": 3,
+            "text": "26.54%"
+          },
+          {
+            "index": 4,
+            "text": "，正CAR比例为"
+          },
+          {
+            "index": 5,
+            "text": "90.00%"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "2022世界杯T-60至T-10窗口CAAR为",
+          "marginLeft": 0,
+          "indent": 0,
+          "lineSpacingPercent": 133000,
+          "resolvedTextStyle": {
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "2022世界杯T-60至T-10窗口CAAR为",
+              "fontSize": 17.33,
+              "typeface": "微软雅黑",
+              "color": "#333333"
+            }
+          ],
+          "spaceBefore": 0,
+          "spaceAfter": 0
+        },
+        {
+          "index": 2,
+          "text": "26.54%\n，正CAR比例为",
+          "marginLeft": 0,
+          "indent": 0,
+          "lineSpacingPercent": 133000,
+          "resolvedTextStyle": {
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "26.54%",
+              "fontSize": 18.67,
+              "typeface": "微软雅黑",
+              "color": "#9A0001",
+              "bold": true
+            },
+            {
+              "index": 2,
+              "text": "\n",
+              "alignment": "center"
+            },
+            {
+              "index": 3,
+              "text": "，正CAR比例为",
+              "fontSize": 18.67,
+              "typeface": "微软雅黑",
+              "color": "#9A0001",
+              "bold": true
+            }
+          ],
+          "spaceBefore": 0,
+          "spaceAfter": 0
+        },
+        {
+          "index": 3,
+          "text": "90.00%",
+          "marginLeft": 0,
+          "indent": 0,
+          "lineSpacingPercent": 133000,
+          "resolvedTextStyle": {
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "90.00%",
+              "fontSize": 16,
+              "typeface": "微软雅黑",
+              "color": "#757575"
+            }
+          ],
+          "spaceBefore": 0,
+          "spaceAfter": 0
+        }
+      ],
+      "lineWidth": 1.33
+    },
+    {
+      "order": 26,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/zupwb2hw",
+      "id": "27",
+      "name": "AutoShape 27",
+      "bbox": [
+        966.67,
+        146.67,
+        273.33,
+        480
+      ],
+      "geometry": "roundRect",
+      "resolvedFontSize": 18.67,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "vertical": 1,
+        "fontSize": 18.67,
+        "typeface": "Arial",
+        "color": "#000000",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "textTransform": "none",
+        "wrap": "square",
+        "insets": {
+          "top": 6.67,
+          "right": 6.67,
+          "bottom": 6.67,
+          "left": 6.67
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "rgba(249, 250, 251, 1)",
+      "lineColor": "rgba(229, 231, 235, 1)",
+      "lineWidth": 1.33
+    },
+    {
+      "order": 27,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/obm58z25",
+      "id": "34",
+      "name": "Picture 28",
+      "bbox": [
+        1053.33,
+        173.33,
+        93.33,
+        93.33
+      ],
+      "contentType": "image/png",
+      "asset": {
+        "assetId": "/ppt/media/image11.png",
+        "contentType": "image/png",
+        "byteLength": 2017
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image11.png",
+        "contentType": "image/png",
+        "byteLength": 2017
+      }
+    },
+    {
+      "order": 28,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/hwfyxobm",
+      "id": "29",
+      "name": "AutoShape 29",
+      "bbox": [
+        980,
+        280,
+        246.67,
+        53.33
+      ],
+      "geometry": "rect",
+      "text": "；T-10至T+10转为",
+      "textPreview": "；T-10至T+10转为",
+      "resolvedFontSize": 18.67,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "vertical": 1,
+        "fontSize": 18.67,
+        "typeface": "Arial",
+        "color": "#000000",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "textTransform": "none",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "；T-10至T+10转为"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "；T-10至T+10转为",
+          "marginLeft": 0,
+          "indent": 0,
+          "lineSpacingPercent": 125000,
+          "resolvedTextStyle": {
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "；T-10至T+10转为",
+              "fontSize": 24,
+              "typeface": "微软雅黑",
+              "color": "#1F2329",
+              "bold": true
+            }
+          ],
+          "spaceBefore": 0,
+          "spaceAfter": 0
+        }
+      ],
+      "lineWidth": 1.33
+    },
+    {
+      "order": 29,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/7u54zido",
+      "id": "30",
+      "name": "AutoShape 30",
+      "bbox": [
+        980,
+        373.33,
+        246.67,
+        213.33
+      ],
+      "geometry": "rect",
+      "text": "-8.45%\n，支持赛前退出。\n",
+      "textPreview": "-8.45% | ，支持赛前退出。 |",
+      "resolvedFontSize": 18.67,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "vertical": 1,
+        "fontSize": 18.67,
+        "typeface": "Arial",
+        "color": "#000000",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "textTransform": "none",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "-8.45%"
+          },
+          {
+            "index": 2,
+            "text": "，支持赛前退出。"
+          },
+          {
+            "index": 3,
+            "text": ""
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "-8.45%",
+          "marginLeft": 0,
+          "indent": 0,
+          "lineSpacingPercent": 133000,
+          "resolvedTextStyle": {
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "-8.45%",
+              "fontSize": 17.33,
+              "typeface": "微软雅黑",
+              "color": "#333333"
+            }
+          ],
+          "spaceBefore": 0,
+          "spaceAfter": 0
+        },
+        {
+          "index": 2,
+          "text": "，支持赛前退出。",
+          "marginLeft": 0,
+          "indent": 0,
+          "lineSpacingPercent": 133000,
+          "resolvedTextStyle": {
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "，支持赛前退出。",
+              "fontSize": 17.33,
+              "typeface": "微软雅黑",
+              "color": "#333333"
+            }
+          ],
+          "spaceBefore": 0,
+          "spaceAfter": 0
+        }
+      ],
+      "lineWidth": 1.33
+    }
+  ],
+  "composeRuns": []
+}

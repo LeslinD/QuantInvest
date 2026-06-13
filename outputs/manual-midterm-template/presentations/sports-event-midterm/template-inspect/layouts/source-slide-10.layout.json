@@ -1,0 +1,733 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/29gr2p8n",
+    "id": "29gr2p8n",
+    "slide": 11,
+    "layoutId": "/ppt/slideLayouts/slideLayout12.xml",
+    "layoutType": "title",
+    "masterLayoutId": "/ppt/slideMasters/slideMaster2.xml",
+    "backgroundColor": "rgba(255, 255, 255, 1)",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "Office",
+    "colors": {
+      "accent1": "#4472C4",
+      "accent2": "#ED7D31",
+      "accent3": "#A5A5A5",
+      "accent4": "#FFC000",
+      "accent5": "#5B9BD5",
+      "accent6": "#70AD47",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#44546A",
+      "lt2": "#E7E6E6",
+      "hlink": "#0563C1",
+      "folHlink": "#954F72"
+    },
+    "fontScheme": {
+      "name": "Office",
+      "majorFont": {
+        "latinTypeface": "Arial"
+      },
+      "minorFont": {
+        "latinTypeface": "Arial"
+      }
+    },
+    "typefaces": [
+      "Arial",
+      "Noto Sans SC",
+      "微软雅黑"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "/ppt/slideLayouts/slideLayout12.xml",
+      "type": "title",
+      "parentLayoutId": "/ppt/slideMasters/slideMaster2.xml",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "/ppt/slideMasters/slideMaster2.xml",
+      "type": "master",
+      "backgroundColor": "rgba(255, 255, 255, 1)",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/zed8v6ps",
+      "id": "10",
+      "name": "Picture 2",
+      "bbox": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "contentType": "image/png",
+      "imageCrop": {
+        "left": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0
+      },
+      "asset": {
+        "assetId": "/ppt/media/image13.png",
+        "contentType": "image/png",
+        "byteLength": 346432
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image13.png",
+        "contentType": "image/png",
+        "byteLength": 346432
+      }
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/gvy90je9",
+      "id": "3",
+      "name": "AutoShape 3",
+      "bbox": [
+        162.67,
+        160,
+        266.67,
+        80
+      ],
+      "geometry": "rect",
+      "text": "PART 03",
+      "textPreview": "PART 03",
+      "resolvedFontSize": 18.67,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "vertical": 1,
+        "fontSize": 18.67,
+        "typeface": "Arial",
+        "color": "#000000",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "textTransform": "none",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "PART 03"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "PART 03",
+          "marginLeft": 0,
+          "indent": 0,
+          "lineSpacingPercent": 125000,
+          "resolvedTextStyle": {
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "PART 03",
+              "fontSize": 53.33,
+              "typeface": "Arial",
+              "color": "#595959",
+              "bold": true
+            }
+          ],
+          "spaceBefore": 0,
+          "spaceAfter": 0
+        }
+      ],
+      "lineWidth": 1.33
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/r2p8nqxs",
+      "id": "4",
+      "name": "AutoShape 4",
+      "bbox": [
+        162.67,
+        253.33,
+        80,
+        8
+      ],
+      "geometry": "roundRect",
+      "resolvedFontSize": 18.67,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "vertical": 1,
+        "fontSize": 18.67,
+        "typeface": "Arial",
+        "color": "#000000",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "textTransform": "none",
+        "wrap": "square",
+        "insets": {
+          "top": 6.67,
+          "right": 6.67,
+          "bottom": 6.67,
+          "left": 6.67
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "rgba(154, 0, 1, 1)",
+      "lineWidth": 2.67
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/2hwfyxob",
+      "id": "5",
+      "name": "AutoShape 5",
+      "bbox": [
+        162.67,
+        293.33,
+        933.33,
+        106.67
+      ],
+      "geometry": "rect",
+      "text": "回测设定与代码示例",
+      "textPreview": "回测设定与代码示例",
+      "resolvedFontSize": 18.67,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "vertical": 1,
+        "fontSize": 18.67,
+        "typeface": "Arial",
+        "color": "#000000",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "textTransform": "none",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "回测设定与代码示例"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "回测设定与代码示例",
+          "marginLeft": 0,
+          "indent": 0,
+          "lineSpacingPercent": 125000,
+          "resolvedTextStyle": {
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "回测设定与代码示例",
+              "fontSize": 58.67,
+              "typeface": "微软雅黑",
+              "color": "#9A0001",
+              "bold": true
+            }
+          ],
+          "spaceBefore": 0,
+          "spaceAfter": 0
+        }
+      ],
+      "lineWidth": 1.33
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/94fu18jq",
+      "id": "6",
+      "name": "AutoShape 6",
+      "bbox": [
+        158.67,
+        426.67,
+        533.33,
+        240
+      ],
+      "geometry": "roundRect",
+      "resolvedFontSize": 18.67,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "vertical": 1,
+        "fontSize": 18.67,
+        "typeface": "Arial",
+        "color": "#000000",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "textTransform": "none",
+        "wrap": "square",
+        "insets": {
+          "top": 6.67,
+          "right": 6.67,
+          "bottom": 6.67,
+          "left": 6.67
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "rgba(255, 255, 255, 0.95)",
+      "lineColor": "rgba(220, 220, 220, 1)",
+      "lineWidth": 1.33
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/kjm1cfa9",
+      "id": "7",
+      "name": "AutoShape 7",
+      "bbox": [
+        185.33,
+        446.67,
+        480,
+        200
+      ],
+      "geometry": "rect",
+      "text": "▍ 回测设定\n• 回测时间：2022年9月1日 至 2022年11月20日（卡塔尔世界杯赛前）\n• 标的选择：元隆雅图、共创草坪、中体产业（等权重组合）\n• 交易规则：期初买入，世界杯开幕日卖出，计算最终收益率",
+      "textPreview": "▍ 回测设定 | • 回测时间：2022年9月1日 至 2022年11月20日（卡塔尔世界杯赛前） | • 标的选择：元隆雅图、共创草坪、中体产业（等权重组合） | • 交易规则：期初买入，世界杯开幕日卖出，计算最终收益率",
+      "resolvedFontSize": 18.67,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "vertical": 1,
+        "fontSize": 18.67,
+        "typeface": "Arial",
+        "color": "#000000",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "textTransform": "none",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 5,
+        "lines": [
+          {
+            "index": 1,
+            "text": "▍ 回测设定"
+          },
+          {
+            "index": 2,
+            "text": "• 回测时间：2022年9月1日 至"
+          },
+          {
+            "index": 3,
+            "text": "2022年11月20日（卡塔尔世界杯赛前）"
+          },
+          {
+            "index": 4,
+            "text": "• 标的选择：元隆雅图、共创草坪、中体产业（等权重组合）"
+          },
+          {
+            "index": 5,
+            "text": "• 交易规则：期初买入，世界杯开幕日卖出，计算最终收益率"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "▍ 回测设定",
+          "marginLeft": 0,
+          "indent": 0,
+          "lineSpacingPercent": 117000,
+          "resolvedTextStyle": {
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "▍ 回测设定",
+              "fontSize": 24,
+              "typeface": "Noto Sans SC",
+              "color": "#9A0001",
+              "bold": true
+            }
+          ],
+          "spaceBefore": 0,
+          "spaceAfter": 0
+        },
+        {
+          "index": 2,
+          "text": "• 回测时间：2022年9月1日 至 2022年11月20日（卡塔尔世界杯赛前）",
+          "marginLeft": 0,
+          "indent": 0,
+          "lineSpacingPercent": 117000,
+          "resolvedTextStyle": {
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "• 回测时间：",
+              "fontSize": 17.33,
+              "typeface": "Noto Sans SC",
+              "color": "#333333",
+              "bold": true
+            },
+            {
+              "index": 2,
+              "text": "2022年9月1日 至 2022年11月20日（卡塔尔世界杯赛前）",
+              "fontSize": 17.33,
+              "typeface": "Noto Sans SC",
+              "color": "#505050"
+            }
+          ],
+          "spaceBefore": 0,
+          "spaceAfter": 0
+        },
+        {
+          "index": 3,
+          "text": "• 标的选择：元隆雅图、共创草坪、中体产业（等权重组合）",
+          "marginLeft": 0,
+          "indent": 0,
+          "lineSpacingPercent": 117000,
+          "resolvedTextStyle": {
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "• 标的选择：",
+              "fontSize": 17.33,
+              "typeface": "Noto Sans SC",
+              "color": "#333333",
+              "bold": true
+            },
+            {
+              "index": 2,
+              "text": "元隆雅图、共创草坪、中体产业（等权重组合）",
+              "fontSize": 17.33,
+              "typeface": "Noto Sans SC",
+              "color": "#505050"
+            }
+          ],
+          "spaceBefore": 0,
+          "spaceAfter": 0
+        },
+        {
+          "index": 4,
+          "text": "• 交易规则：期初买入，世界杯开幕日卖出，计算最终收益率",
+          "marginLeft": 0,
+          "indent": 0,
+          "lineSpacingPercent": 117000,
+          "resolvedTextStyle": {
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "• 交易规则：",
+              "fontSize": 17.33,
+              "typeface": "Noto Sans SC",
+              "color": "#333333",
+              "bold": true
+            },
+            {
+              "index": 2,
+              "text": "期初买入，世界杯开幕日卖出，计算最终收益率",
+              "fontSize": 17.33,
+              "typeface": "Noto Sans SC",
+              "color": "#505050"
+            }
+          ],
+          "spaceBefore": 0,
+          "spaceAfter": 0
+        }
+      ],
+      "lineWidth": 1.33
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/rqd4vmtw",
+      "id": "8",
+      "name": "AutoShape 8",
+      "bbox": [
+        706.67,
+        426.67,
+        520,
+        240
+      ],
+      "geometry": "roundRect",
+      "resolvedFontSize": 18.67,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "vertical": 1,
+        "fontSize": 18.67,
+        "typeface": "Arial",
+        "color": "#000000",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "textTransform": "none",
+        "wrap": "square",
+        "insets": {
+          "top": 6.67,
+          "right": 6.67,
+          "bottom": 6.67,
+          "left": 6.67
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": ""
+          }
+        ]
+      },
+      "fillColor": "rgba(35, 40, 48, 1)",
+      "lineWidth": 2.67
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/25kb6xkf",
+      "id": "9",
+      "name": "AutoShape 9",
+      "bbox": [
+        726.67,
+        440,
+        480,
+        213.33
+      ],
+      "geometry": "rect",
+      "text": "# 回测代码片段 (Python 伪代码)\ndef world_cup_strategy():\nstock_pool = ['元隆雅图', '共创草坪', '中体产业']\nstart, end = '2022-09-01', '2022-11-20'\nprices = get_stock_data(stock_pool, start, end)\nshares = (1000000 / 3) / prices.iloc[0] # 等权买入\nfinal_val = sum(shares * prices.iloc[-1]) # 开幕日卖出\nreturn (final_val - 1000000) / 1000000 # 计算收益",
+      "textPreview": "# 回测代码片段 (Python 伪代码) | def world_cup_strategy(): | stock_pool = ['元隆雅图', '共创草坪', '中体产业'] | start, end = '2022-09-01', '2022-11-20' | pri...",
+      "resolvedFontSize": 18.67,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "vertical": 1,
+        "fontSize": 18.67,
+        "typeface": "Arial",
+        "color": "#000000",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "textTransform": "none",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 8,
+        "lines": [
+          {
+            "index": 1,
+            "text": "# 回测代码片段 (Python 伪代码)"
+          },
+          {
+            "index": 2,
+            "text": "def world_cup_strategy():"
+          },
+          {
+            "index": 3,
+            "text": "stock_pool = ['元隆雅图', '共创草坪', '中体产业']"
+          },
+          {
+            "index": 4,
+            "text": "start, end = '2022-09-01', '2022-11-20'"
+          },
+          {
+            "index": 5,
+            "text": "prices = get_stock_data(stock_pool, start, end)"
+          },
+          {
+            "index": 6,
+            "text": "shares = (1000000 / 3) / prices.iloc[0] # 等权买入"
+          },
+          {
+            "index": 7,
+            "text": "final_val = sum(shares * prices.iloc[-1]) # 开幕日卖出"
+          },
+          {
+            "index": 8,
+            "text": "return (final_val - 1000000) / 1000000 # 计算收益"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "# 回测代码片段 (Python 伪代码)",
+          "marginLeft": 0,
+          "indent": 0,
+          "lineSpacingPercent": 100000,
+          "resolvedTextStyle": {
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "# 回测代码片段 (Python 伪代码)",
+              "fontSize": 18.67,
+              "typeface": "Arial",
+              "color": "#FFC60B",
+              "bold": true
+            }
+          ],
+          "spaceBefore": 0,
+          "spaceAfter": 0
+        },
+        {
+          "index": 2,
+          "text": "def world_cup_strategy():\nstock_pool = ['元隆雅图', '共创草坪', '中体产业']\nstart, end = '2022-09-01', '2022-11-20'\nprices = get_stock_data(stock_pool, start, end)\nshares = (1000000 / 3) / prices.iloc[0] # 等权买入\nfinal_val = sum(shares * prices.iloc[-1]) # 开幕日卖出\nreturn (final_val - 1000000) / 1000000 # 计算收益",
+          "marginLeft": 0,
+          "indent": 0,
+          "lineSpacingPercent": 100000,
+          "resolvedTextStyle": {
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "def world_cup_strategy():",
+              "fontSize": 14.67,
+              "typeface": "Arial",
+              "color": "#C8C8C8"
+            },
+            {
+              "index": 2,
+              "text": "\n",
+              "alignment": "left"
+            },
+            {
+              "index": 3,
+              "text": "stock_pool = ['元隆雅图', '共创草坪', '中体产业']",
+              "fontSize": 14.67,
+              "typeface": "Arial",
+              "color": "#C8C8C8"
+            },
+            {
+              "index": 4,
+              "text": "\n",
+              "alignment": "left"
+            },
+            {
+              "index": 5,
+              "text": "start, end = '2022-09-01', '2022-11-20'",
+              "fontSize": 14.67,
+              "typeface": "Arial",
+              "color": "#C8C8C8"
+            },
+            {
+              "index": 6,
+              "text": "\n",
+              "alignment": "left"
+            },
+            {
+              "index": 7,
+              "text": "prices = get_stock_data(stock_pool, start, end)",
+              "fontSize": 14.67,
+              "typeface": "Arial",
+              "color": "#C8C8C8"
+            },
+            {
+              "index": 8,
+              "text": "\n",
+              "alignment": "left"
+            },
+            {
+              "index": 9,
+              "text": "shares = (1000000 / 3) / prices.iloc[0] # 等权买入",
+              "fontSize": 14.67,
+              "typeface": "Arial",
+              "color": "#C8C8C8"
+            },
+            {
+              "index": 10,
+              "text": "\n",
+              "alignment": "left"
+            },
+            {
+              "index": 11,
+              "text": "final_val = sum(shares * prices.iloc[-1]) # 开幕日卖出",
+              "fontSize": 14.67,
+              "typeface": "Arial",
+              "color": "#C8C8C8"
+            },
+            {
+              "index": 12,
+              "text": "\n",
+              "alignment": "left"
+            },
+            {
+              "index": 13,
+              "text": "return (final_val - 1000000) / 1000000 # 计算收益",
+              "fontSize": 14.67,
+              "typeface": "Arial",
+              "color": "#C8C8C8"
+            }
+          ],
+          "spaceBefore": 0,
+          "spaceAfter": 0
+        }
+      ],
+      "lineWidth": 1.33
+    }
+  ],
+  "composeRuns": []
+}

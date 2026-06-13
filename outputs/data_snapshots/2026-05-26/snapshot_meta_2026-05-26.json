@@ -1,0 +1,33 @@
+{
+  "as_of_date": "2026-05-26",
+  "created_at": "2026-05-27T02:25:25",
+  "paths": {
+    "sh000300": "/Users/rtx/Code/coursework/QuantInvest/outputs/data_snapshots/2026-05-26/sh000300_2026-05-26.csv",
+    "sh000852": "/Users/rtx/Code/coursework/QuantInvest/outputs/data_snapshots/2026-05-26/sh000852_2026-05-26.csv",
+    "sh600060": "/Users/rtx/Code/coursework/QuantInvest/outputs/data_snapshots/2026-05-26/sh600060_2026-05-26.csv",
+    "sh600158": "/Users/rtx/Code/coursework/QuantInvest/outputs/data_snapshots/2026-05-26/sh600158_2026-05-26.csv",
+    "sh605099": "/Users/rtx/Code/coursework/QuantInvest/outputs/data_snapshots/2026-05-26/sh605099_2026-05-26.csv",
+    "sh605299": "/Users/rtx/Code/coursework/QuantInvest/outputs/data_snapshots/2026-05-26/sh605299_2026-05-26.csv",
+    "sz000558": "/Users/rtx/Code/coursework/QuantInvest/outputs/data_snapshots/2026-05-26/sz000558_2026-05-26.csv",
+    "sz002181": "/Users/rtx/Code/coursework/QuantInvest/outputs/data_snapshots/2026-05-26/sz002181_2026-05-26.csv",
+    "sz002587": "/Users/rtx/Code/coursework/QuantInvest/outputs/data_snapshots/2026-05-26/sz002587_2026-05-26.csv",
+    "sz002858": "/Users/rtx/Code/coursework/QuantInvest/outputs/data_snapshots/2026-05-26/sz002858_2026-05-26.csv",
+    "sz002878": "/Users/rtx/Code/coursework/QuantInvest/outputs/data_snapshots/2026-05-26/sz002878_2026-05-26.csv",
+    "sz300651": "/Users/rtx/Code/coursework/QuantInvest/outputs/data_snapshots/2026-05-26/sz300651_2026-05-26.csv"
+  },
+  "provider": "sina",
+  "symbols": [
+    "sh600060",
+    "sz002878",
+    "sz002181",
+    "sh605099",
+    "sh605299",
+    "sh600158",
+    "sz000558",
+    "sz002858",
+    "sz300651",
+    "sz002587",
+    "sh000300",
+    "sh000852"
+  ]
+}

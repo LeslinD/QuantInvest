@@ -1,0 +1,58 @@
+[
+  {
+    "event_id": "FIFA_WC_2022_OPEN",
+    "sport": "football",
+    "event_name": "2022 FIFA World Cup opening",
+    "event_type": "tournament_open",
+    "event_date": "2022-11-20",
+    "announcement_date": "2010-12-02",
+    "known_at": "2022-04-01",
+    "source_url": "https://www.fifa.com/",
+    "status": "completed",
+    "certainty": 1.0,
+    "impact_proxy": 1.0,
+    "event_fit": 1.0
+  },
+  {
+    "event_id": "UEFA_EURO_2024_OPEN",
+    "sport": "football",
+    "event_name": "UEFA EURO 2024 opening",
+    "event_type": "tournament_open",
+    "event_date": "2024-06-14",
+    "announcement_date": "2022-09-27",
+    "known_at": "2024-01-01",
+    "source_url": "https://www.uefa.com/euro2024/",
+    "status": "completed",
+    "certainty": 1.0,
+    "impact_proxy": 0.70,
+    "event_fit": 0.80
+  },
+  {
+    "event_id": "PARIS_OLYMPICS_2024_OPEN",
+    "sport": "multi_sport",
+    "event_name": "Paris 2024 Olympic Games opening",
+    "event_type": "tournament_open",
+    "event_date": "2024-07-26",
+    "announcement_date": "2017-09-13",
+    "known_at": "2024-01-01",
+    "source_url": "https://olympics.com/en/paris-2024",
+    "status": "completed",
+    "certainty": 1.0,
+    "impact_proxy": 0.90,
+    "event_fit": 0.55
+  },
+  {
+    "event_id": "FIFA_WC_2026_OPEN",
+    "sport": "football",
+    "event_name": "2026 FIFA World Cup opening",
+    "event_type": "tournament_open",
+    "event_date": "2026-06-11",
+    "announcement_date": "2024-02-04",
+    "known_at": "2026-05-26",
+    "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/match-schedule-fixtures-results-teams-stadiums",
+    "status": "simulation",
+    "certainty": 1.0,
+    "impact_proxy": 1.0,
+    "event_fit": 1.0
+  }
+]

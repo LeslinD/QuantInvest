@@ -1,0 +1,71 @@
+{
+  "project": "sports_event_driven_quant",
+  "as_of_date": "2026-05-26",
+  "initial_cash": 1000000.0,
+  "benchmark_symbol": "sh000300",
+  "secondary_benchmark_symbol": "sh000852",
+  "data": {
+    "provider": "sina",
+    "datalen": 1500,
+    "snapshot_dir": "outputs/data_snapshots"
+  },
+  "costs": {
+    "commission_rate": 0.0003,
+    "min_commission": 5.0,
+    "stamp_tax_sell_rate": 0.0005,
+    "default_slippage_rate": 0.001,
+    "liquidity_slippage": [
+      {"min_amount": 1000000000, "slippage": 0.0005},
+      {"min_amount": 100000000, "slippage": 0.0010},
+      {"min_amount": 0, "slippage": 0.0020}
+    ]
+  },
+  "constraints": {
+    "lot_size": 100,
+    "max_position_per_stock": 0.12,
+    "max_event_exposure": 0.40,
+    "min_cash_weight": 0.60,
+    "max_industry_exposure": 0.25,
+    "main_board_limit_pct": 0.10,
+    "chi_next_star_limit_pct": 0.20
+  },
+  "model": {
+    "type": "sign_constrained_rankic",
+    "factor_directions": {
+      "exposure": 1,
+      "attention": 1,
+      "momentum": 1,
+      "liquidity": 1,
+      "low_volatility": 1
+    },
+    "factor_priors": {
+      "exposure": 0.30,
+      "attention": 0.25,
+      "momentum": 0.20,
+      "liquidity": 0.10,
+      "low_volatility": 0.15
+    },
+    "description": "RankIC 权重向金融理论先验收缩，并对所有因子施加正向符号约束；事件暴露作为交易资格门槛，避免小样本下把低相关标的推到高仓位。"
+  },
+  "hyperparameter_grid": {
+    "attention_lookback": [10, 20],
+    "momentum_lookback": [20],
+    "entry_days_before_event": [90, 60],
+    "exit_days_before_event": [10],
+    "top_k": [3, 5],
+    "stop_loss": [0.08, 0.10],
+    "stop_vol_multiplier": [4.0, 5.0],
+    "max_effective_stop_loss": [0.12],
+    "min_exposure_for_trade": [0.45, 0.50],
+    "min_event_fit_for_trade": [0.70],
+    "rankic_prior_weight": [0.55],
+    "attention_z_cap": [1.0, 1.5]
+  },
+  "paper_trading": {
+    "event_id": "FIFA_WC_2026_OPEN",
+    "decision_date": "2026-05-26",
+    "order_date": "2026-05-27",
+    "fallback_max_event_exposure": 0.30,
+    "reason": "2026-05-27 未开盘，按 2026-05-26 收盘后冻结数据生成下一交易日模拟订单。"
+  }
+}
