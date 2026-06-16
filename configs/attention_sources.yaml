@@ -1,0 +1,30 @@
+event_heat:
+  - source_name: baidu_index
+    automation_level: manual_import
+    required_fields: [as_of_date, event_id, query_keyword, raw_value, normalized_value, source_url_or_file]
+    use: public_search_interest
+  - source_name: wechat_index
+    automation_level: manual_import
+    required_fields: [as_of_date, event_id, query_keyword, raw_value, normalized_value, source_url_or_file]
+    use: domestic_social_spread
+  - source_name: news_count
+    automation_level: semi_automatic
+    required_fields: [as_of_date, event_id, query_keyword, raw_value, normalized_value, source_url_or_file]
+    use: media_coverage
+stock_heat:
+  - source_name: amount_shock
+    automation_level: automatic
+    required_fields: [as_of_date, ticker, lookback_days, raw_value, normalized_value]
+    use: market_attention
+  - source_name: hot_rank
+    automation_level: manual_import
+    required_fields: [as_of_date, ticker, source_name, rank, rank_change, source_url_or_file]
+    use: investor_platform_attention
+  - source_name: forum_count
+    automation_level: manual_import
+    required_fields: [as_of_date, ticker, source_name, raw_value, normalized_value, source_url_or_file]
+    use: retail_discussion_attention
+audit_rules:
+  required_event_sources: [baidu_index, wechat_index, news_count]
+  required_stock_sources: [amount_shock, hot_rank]
+  missing_manual_source_status: pending_manual_import

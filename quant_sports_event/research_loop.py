@@ -298,9 +298,9 @@ def build_position_compare(orders: pd.DataFrame, scores: pd.DataFrame) -> pd.Dat
                 "ticker": ticker,
                 "name": names.get(ticker, ""),
                 "industry": industries.get(ticker, ""),
-                "midterm_pdf_weight": old,
-                "current_loop_weight": new,
-                "weight_change_vs_pdf": new - old,
+                "midterm_weight": old,
+                "current_weight": new,
+                "weight_change_vs_midterm": new - old,
                 "change_reason": reason,
             }
         )
@@ -662,7 +662,7 @@ def run_research_loop(
         diagnostic_report=final_dir / "diagnostic_report.md",
         next_actions=final_dir / "next_actions.yaml",
         holding_attribution=final_dir / "holding_attribution.csv",
-        position_compare=final_dir / "position_compare_midterm_vs_current.csv",
+        position_compare=final_dir / "position_compare_midterm_vs_final.csv",
         event_diagnostics=final_dir / "event_diagnostics.csv",
         final_factor_panel=final_dir / "factor_panel_final.csv",
         final_orders=final_dir / "paper_orders_final_2026-05-27.csv",

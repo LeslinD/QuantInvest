@@ -1,0 +1,2 @@
+as_of_date,event_id,source_name,query_keyword,raw_value,normalized_value,source_url_or_file,missing_reason,reviewer,review_note
+2026-05-26,FIFA_WC_2026_OPEN,baidu_index,2026世界杯,,,,pending_manual_import,,

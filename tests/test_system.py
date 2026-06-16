@@ -5,6 +5,11 @@ from pathlib import Path
 
 import pandas as pd
 
+from quant_sports_event.audit import (
+    attention_data_audit,
+    event_library_audit,
+    universe_evidence_audit,
+)
 from quant_sports_event.backtest import benchmark_comparison, exposure_for_event, params_for_event, run_event_backtest, walk_forward_search
 from quant_sports_event.costs import CostModel, is_limit_down, is_limit_up, round_lot_shares
 from quant_sports_event.factors import compute_symbol_features, estimate_constrained_rankic_weights, estimate_rankic_weights
@@ -435,6 +440,55 @@ class ResearchLoopTests(unittest.TestCase):
             self.assertIn("overfit_gap", tags)
             self.assertIn("event_misfit", tags)
             self.assertEqual(loop["decision"], "accept_first_round_risk_overlay")
+
+
+class AuditTests(unittest.TestCase):
+    def test_event_and_universe_audits_run(self):
+        events = [
+            {
+                "event_id": "E1",
+                "sport": "football",
+                "event_date": "2024-01-01",
+                "status": "completed",
+                "certainty": 1,
+                "domestic_attention_score": 0.9,
+                "stock_market_fit": 0.8,
+                "known_at": "2023-01-01",
+                "source_url": "https://example.com",
+                "chain_weights": {"display_device": 1.0},
+            },
+            {
+                "event_id": "E2",
+                "sport": "multi_sport_global",
+                "event_date": "2024-02-01",
+                "status": "completed",
+                "certainty": 1,
+                "domestic_attention_score": 0.9,
+                "stock_market_fit": 0.4,
+                "known_at": "2023-01-01",
+                "source_url": "https://example.com",
+                "chain_weights": {"media": 0.4},
+            },
+        ]
+        model = {"event_layer_rules": {"multi_sport_global": {"action": "avoid", "reason": "low fit"}}}
+        event_audit = event_library_audit(events, model)
+        self.assertEqual(event_audit.loc[event_audit["event_id"] == "E1", "audit_status"].iloc[0], "pass")
+        self.assertEqual(event_audit.loc[event_audit["event_id"] == "E2", "layer_action"].iloc[0], "avoid")
+
+        universe = [
+            {
+                "ticker": "600060.SH",
+                "name": "海信视像",
+                "industry": "显示设备",
+                "base_exposure": 0.8,
+                "relation_types": ["official_fifa_sponsor", "display_device"],
+                "evidence": [{"source_url": "https://example.com"}],
+            }
+        ]
+        universe_audit = universe_evidence_audit(universe)
+        attention_audit = attention_data_audit(events, universe)
+        self.assertIn("chain_level", universe_audit)
+        self.assertIn("pending_manual_import", set(attention_audit["status"]))
 
 
 if __name__ == "__main__":
