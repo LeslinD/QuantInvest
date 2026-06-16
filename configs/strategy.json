@@ -63,6 +63,40 @@
       "liquidity": [0.05, 0.15],
       "low_volatility": [0.10, 0.40]
     },
+    "event_layer_rules": {
+      "football": {
+        "action": "trade",
+        "entry_days_before_event": 90,
+        "exit_days_before_event": 10,
+        "top_k": 3,
+        "min_exposure_for_trade": 0.30
+      },
+      "multi_sport_china": {
+        "action": "trade",
+        "entry_days_before_event": 90,
+        "exit_days_before_event": 10,
+        "top_k": 3,
+        "min_exposure_for_trade": 0.20
+      },
+      "winter_sport_china": {
+        "action": "trade",
+        "entry_days_before_event": 30,
+        "exit_days_before_event": 0,
+        "top_k": 1,
+        "min_exposure_for_trade": 0.20
+      },
+      "winter_sport_global": {
+        "action": "trade",
+        "entry_days_before_event": 45,
+        "exit_days_before_event": 10,
+        "top_k": 1,
+        "min_exposure_for_trade": 0.20
+      },
+      "multi_sport_global": {
+        "action": "avoid",
+        "reason": "境外综合赛事的社会热度高，但当前A股候选池缺少稳定收入链条。"
+      }
+    },
     "description": "RankIC 权重向金融理论先验收缩，并对所有因子施加正向符号约束；事件暴露作为交易资格门槛，避免小样本下把低相关标的推到高仓位。"
   },
   "hyperparameter_grid": {

@@ -21,6 +21,19 @@ class BacktestResult:
     samples: pd.DataFrame
 
 
+def params_for_event(params: Dict, event: Dict, model_config: Dict | None = None) -> Dict:
+    model_config = model_config or {}
+    rules = model_config.get("event_layer_rules", {})
+    rule = rules.get(event.get("event_id")) or rules.get(event.get("sport")) or {}
+    event_params = dict(params)
+    for key, value in rule.items():
+        if key not in {"reason"}:
+            event_params[key] = value
+    event_params["event_layer"] = event.get("sport", "")
+    event_params["event_layer_reason"] = rule.get("reason", event.get("diagnosis_note", ""))
+    return event_params
+
+
 def exposure_for_event(exposure_by_ticker: Dict[str, Any], event_id: str) -> Dict[str, float]:
     if not exposure_by_ticker:
         return {}
@@ -55,15 +68,19 @@ def make_training_samples(
     events: List[Dict],
     params: Dict,
     benchmark: pd.DataFrame | None = None,
+    model_config: Dict | None = None,
 ) -> pd.DataFrame:
     rows = []
     ref_df = next(iter(frames.values()))
     for event in events:
-        if float(event.get("event_fit", 1.0)) < float(params.get("min_event_fit_for_trade", 0.0)):
+        event_params = params_for_event(params, event, model_config)
+        if event_params.get("action") == "avoid":
+            continue
+        if float(event.get("event_fit", 1.0)) < float(event_params.get("min_event_fit_for_trade", 0.0)):
             continue
         event_date = pd.to_datetime(event["event_date"])
-        decision = _trading_date_on_or_before(ref_df, event_date - pd.Timedelta(days=params["entry_days_before_event"]))
-        exit_signal = _trading_date_on_or_before(ref_df, event_date - pd.Timedelta(days=params["exit_days_before_event"]))
+        decision = _trading_date_on_or_before(ref_df, event_date - pd.Timedelta(days=event_params["entry_days_before_event"]))
+        exit_signal = _trading_date_on_or_before(ref_df, event_date - pd.Timedelta(days=event_params["exit_days_before_event"]))
         if decision is None or exit_signal is None or exit_signal <= decision:
             continue
         panel = factor_panel_for_date(
@@ -71,8 +88,8 @@ def make_training_samples(
             universe,
             exposure_for_event(exposure_by_ticker, event["event_id"]),
             decision.strftime("%Y-%m-%d"),
-            params["attention_lookback"],
-            params["momentum_lookback"],
+            event_params["attention_lookback"],
+            event_params["momentum_lookback"],
         )
         for _, p in panel.iterrows():
             df = frames[p["sina_symbol"]]
@@ -112,7 +129,7 @@ def run_event_backtest(
 ) -> BacktestResult:
     train_events = train_events if train_events is not None else events
     model_config = model_config or {}
-    samples = make_training_samples(frames, universe, exposure_by_ticker, train_events, params, benchmark=benchmark)
+    samples = make_training_samples(frames, universe, exposure_by_ticker, train_events, params, benchmark=benchmark, model_config=model_config)
     factor_weights = estimate_constrained_rankic_weights(
         samples,
         FEATURES,
@@ -124,11 +141,14 @@ def run_event_backtest(
     trades = []
     ref_df = next(iter(frames.values()))
     for event in events:
-        if float(event.get("event_fit", 1.0)) < float(params.get("min_event_fit_for_trade", 0.0)):
+        event_params = params_for_event(params, event, model_config)
+        if event_params.get("action") == "avoid":
+            continue
+        if float(event.get("event_fit", 1.0)) < float(event_params.get("min_event_fit_for_trade", 0.0)):
             continue
         event_date = pd.to_datetime(event["event_date"])
-        decision = _trading_date_on_or_before(ref_df, event_date - pd.Timedelta(days=params["entry_days_before_event"]))
-        exit_signal = _trading_date_on_or_before(ref_df, event_date - pd.Timedelta(days=params["exit_days_before_event"]))
+        decision = _trading_date_on_or_before(ref_df, event_date - pd.Timedelta(days=event_params["entry_days_before_event"]))
+        exit_signal = _trading_date_on_or_before(ref_df, event_date - pd.Timedelta(days=event_params["exit_days_before_event"]))
         if decision is None or exit_signal is None or exit_signal <= decision:
             continue
         panel = factor_panel_for_date(
@@ -136,17 +156,17 @@ def run_event_backtest(
             universe,
             exposure_for_event(exposure_by_ticker, event["event_id"]),
             decision.strftime("%Y-%m-%d"),
-            params["attention_lookback"],
-            params["momentum_lookback"],
+            event_params["attention_lookback"],
+            event_params["momentum_lookback"],
         )
-        scored = score_panel(panel, factor_weights, attention_z_cap=params.get("attention_z_cap"))
-        scored = scored[scored["exposure"] >= float(params.get("min_exposure_for_trade", 0.0))].copy()
+        scored = score_panel(panel, factor_weights, attention_z_cap=event_params.get("attention_z_cap"))
+        scored = scored[scored["exposure"] >= float(event_params.get("min_exposure_for_trade", 0.0))].copy()
         targets = build_target_weights(
             scored,
             max_event_exposure=float(constraints["max_event_exposure"]),
             max_position_per_stock=float(constraints["max_position_per_stock"]),
             max_industry_exposure=float(constraints["max_industry_exposure"]),
-            top_k=int(params["top_k"]),
+            top_k=int(event_params["top_k"]),
         )
         for _, row in targets.iterrows():
             df = frames[row["sina_symbol"]]
@@ -157,12 +177,12 @@ def run_event_backtest(
             buy_price = float(df.loc[df["date"] == buy_date, "open"].iloc[0])
             sell_price = float(df.loc[df["date"] == sell_date, "open"].iloc[0])
             stop_hit = False
-            effective_stop = float(params.get("stop_loss", 1.0))
-            if "stop_loss" in params:
+            effective_stop = float(event_params.get("stop_loss", 1.0))
+            if "stop_loss" in event_params:
                 ret_hist = df[df["date"] <= decision]["close"].pct_change().tail(20)
-                vol_stop = float(params.get("stop_vol_multiplier", 0.0)) * float(ret_hist.std())
-                effective_stop = max(float(params["stop_loss"]), vol_stop)
-                effective_stop = min(effective_stop, float(params.get("max_effective_stop_loss", effective_stop)))
+                vol_stop = float(event_params.get("stop_vol_multiplier", 0.0)) * float(ret_hist.std())
+                effective_stop = max(float(event_params["stop_loss"]), vol_stop)
+                effective_stop = min(effective_stop, float(event_params.get("max_effective_stop_loss", effective_stop)))
                 stop_price = buy_price * (1 - effective_stop)
                 hold = df[(df["date"] > buy_date) & (df["date"] <= sell_date)]
                 stop_rows = hold[hold["low"] <= stop_price]
@@ -193,6 +213,9 @@ def run_event_backtest(
                     "sell_date": sell_date.date().isoformat(),
                     "exit_reason": "stop_loss" if stop_hit else "event_exit",
                     "event_fit": float(event.get("event_fit", 1.0)),
+                    "event_layer": event_params.get("event_layer", ""),
+                    "event_layer_action": event_params.get("action", "trade"),
+                    "event_layer_reason": event_params.get("event_layer_reason", ""),
                     "effective_stop_loss": effective_stop,
                     "target_weight": float(row["target_weight"]),
                     "shares": int(shares),

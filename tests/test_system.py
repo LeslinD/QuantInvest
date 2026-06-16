@@ -5,10 +5,11 @@ from pathlib import Path
 
 import pandas as pd
 
-from quant_sports_event.backtest import benchmark_comparison, exposure_for_event, run_event_backtest, walk_forward_search
+from quant_sports_event.backtest import benchmark_comparison, exposure_for_event, params_for_event, run_event_backtest, walk_forward_search
 from quant_sports_event.costs import CostModel, is_limit_down, is_limit_up, round_lot_shares
 from quant_sports_event.factors import compute_symbol_features, estimate_constrained_rankic_weights, estimate_rankic_weights
 from quant_sports_event.event_study import event_study, summarize_event_study
+from quant_sports_event.evaluation import static_portfolio_return
 from quant_sports_event.llm_agent import RuleBasedEventAgent
 from quant_sports_event.portfolio import build_target_weights
 from quant_sports_event.research_loop import run_research_loop
@@ -229,6 +230,14 @@ class FactorAndBacktestTests(unittest.TestCase):
         self.assertEqual(exposure_for_event(exposures, "E1")["A.SH"], 0.8)
         self.assertEqual(exposure_for_event({"A.SH": 0.5}, "E1")["A.SH"], 0.5)
 
+    def test_event_layer_params_override_base_params(self):
+        params = {"entry_days_before_event": 90, "exit_days_before_event": 10, "top_k": 5}
+        event = {"event_id": "E1", "sport": "multi_sport_global"}
+        model = {"event_layer_rules": {"multi_sport_global": {"action": "avoid", "reason": "low fit"}}}
+        out = params_for_event(params, event, model)
+        self.assertEqual(out["action"], "avoid")
+        self.assertEqual(out["event_layer_reason"], "low fit")
+
     def test_benchmark_comparison_runs(self):
         trades = pd.DataFrame(
             [
@@ -244,6 +253,22 @@ class FactorAndBacktestTests(unittest.TestCase):
         report = benchmark_comparison(trades, {"bench": bench}, benchmark_names={"bench": "测试基准"})
         self.assertEqual(report.loc[0, "benchmark_name"], "测试基准")
         self.assertIn("excess_vs_benchmark_event_book", report)
+
+    def test_static_portfolio_return_runs(self):
+        frame = synthetic_frame("sha", start="2024-01-01", periods=20)
+        universe = {"A.SH": {"ticker": "A.SH", "sina_symbol": "sha", "name": "A", "industry": "x"}}
+        ret, details = static_portfolio_return(
+            {"sha": frame},
+            universe,
+            {"A.SH": 0.1},
+            start_date="2024-01-02",
+            end_date="2024-01-20",
+            initial_cash=100000,
+            lot_size=100,
+        )
+        self.assertFalse(details.empty)
+        self.assertIn("pnl", details)
+        self.assertTrue(pd.notna(ret))
 
     def test_event_study_runs(self):
         universe = [{"ticker": "A.SH", "sina_symbol": "sha", "name": "A", "industry": "x", "board": "main"}]

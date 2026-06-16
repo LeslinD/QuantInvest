@@ -167,7 +167,7 @@
       "licensed_merchandise": 0.20,
       "ip_products": 0.20
     },
-    "diagnosis_note": "奥运关注度高，但境外综合赛事缺少明确A股收入链条，系统应降权而不是按热度加仓。"
+    "diagnosis_note": "奥运关注度高，但境外综合赛事缺少明确A股收入链条，系统应按适配度降权，避免单靠热度加仓。"
   },
   {
     "event_id": "HARBIN_ASIAN_WINTER_2025_OPEN",

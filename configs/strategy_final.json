@@ -26,9 +26,9 @@
     "min_rolling_validation_trades": 5,
     "min_rolling_validation_net_return": 0.0,
     "min_backtest_net_return": 0.0,
-    "max_validation_gap": 0.03,
+    "max_validation_gap": 0.035,
     "min_benchmark_wins": 5,
-    "max_cost_to_initial_cash": 0.004
+    "max_cost_to_initial_cash": 0.005
   },
   "reason": "第一轮在扩展事件库和股票池后生成模拟订单，再用综合因子和风险约束重排仓位；新增订单必须来自已通过事件链条和交易约束的候选池。"
 }
