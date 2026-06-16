@@ -22,6 +22,23 @@
     "new_stock_requires_evidence": true,
     "hedge_orders_require_manual_approval": true
   },
+  "second_round_overlay": {
+    "event_id": "FIFA_WC_2026_OPEN",
+    "long_horizon_days_threshold": 300,
+    "direct_core_relation_types": ["official_fifa_sponsor"],
+    "max_long_exposure_without_manual_heat": 0.10,
+    "delay_non_core_when_manual_heat_pending": true,
+    "market_hedge": {
+      "enabled": true,
+      "benchmark_symbol": "sh000905",
+      "benchmark_name": "中证500",
+      "min_days_to_event": 0,
+      "trigger_ret20_min": 0.03,
+      "trigger_ret60_min": 0.0,
+      "notional_cap": 0.10,
+      "cost_rate_per_side": 0.00005
+    }
+  },
   "acceptance_metrics": {
     "min_rolling_validation_trades": 5,
     "min_rolling_validation_net_return": 0.0,

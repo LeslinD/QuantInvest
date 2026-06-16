@@ -18,6 +18,11 @@ from quant_sports_event.evaluation import static_portfolio_return
 from quant_sports_event.llm_agent import RuleBasedEventAgent
 from quant_sports_event.portfolio import build_target_weights
 from quant_sports_event.research_loop import run_research_loop
+from quant_sports_event.second_round import (
+    build_second_round_long_orders,
+    hedge_decision,
+    hedge_return,
+)
 from quant_sports_event.super_factors import build_super_factor_panel, validate_super_factor_weights
 from quant_sports_event.validation import EvidenceValidator
 
@@ -489,6 +494,75 @@ class AuditTests(unittest.TestCase):
         attention_audit = attention_data_audit(events, universe)
         self.assertIn("chain_level", universe_audit)
         self.assertIn("pending_manual_import", set(attention_audit["status"]))
+
+
+class SecondRoundTests(unittest.TestCase):
+    def test_long_orders_delay_non_core_when_heat_is_pending(self):
+        orders = pd.DataFrame(
+            [
+                {"ticker": "600060.SH", "company": "海信视像", "industry": "显示设备", "final_target_weight": 0.10},
+                {"ticker": "300162.SZ", "company": "雷曼光电", "industry": "显示设备", "final_target_weight": 0.05},
+            ]
+        )
+        universe = [
+            {"ticker": "600060.SH", "relation_types": ["official_fifa_sponsor", "display_device"]},
+            {"ticker": "300162.SZ", "relation_types": ["led_display", "sports_marketing"]},
+        ]
+        overlay = {
+            "long_horizon_days_threshold": 300,
+            "direct_core_relation_types": ["official_fifa_sponsor"],
+            "max_long_exposure_without_manual_heat": 0.10,
+            "delay_non_core_when_manual_heat_pending": True,
+        }
+        second, audit = build_second_round_long_orders(
+            orders,
+            universe,
+            overlay=overlay,
+            days_to_event=381,
+            manual_attention_pending_count=1,
+        )
+        self.assertEqual(second["ticker"].tolist(), ["600060.SH"])
+        delayed = audit[audit["ticker"] == "300162.SZ"].iloc[0]
+        self.assertEqual(delayed["decision"], "delay_until_attention_confirmed")
+
+    def test_hedge_triggers_after_index_runup(self):
+        decision = hedge_decision(
+            overlay={
+                "long_horizon_days_threshold": 300,
+                "market_hedge": {
+                    "enabled": True,
+                    "benchmark_symbol": "sh000905",
+                    "benchmark_name": "中证500",
+                    "trigger_ret20_min": 0.03,
+                    "trigger_ret60_min": 0.0,
+                    "notional_cap": 0.10,
+                    "cost_rate_per_side": 0.00005,
+                },
+            },
+            regime={"ret5": 0.01, "ret20": 0.04, "ret60": 0.02},
+            long_exposure=0.10,
+            days_to_event=381,
+        )
+        self.assertTrue(decision["triggered"])
+        self.assertAlmostEqual(decision["hedge_notional_weight"], 0.10)
+
+    def test_short_index_hedge_gains_when_index_falls(self):
+        frame = pd.DataFrame(
+            {
+                "date": pd.to_datetime(["2026-05-27", "2026-06-16"]),
+                "open": [100.0, 95.0],
+                "close": [99.0, 95.0],
+            }
+        )
+        ret, detail = hedge_return(
+            frame,
+            {"hedge_notional_weight": 0.10, "cost_rate_per_side": 0.00005, "benchmark_symbol": "bench", "benchmark_name": "测试指数"},
+            start_date="2026-05-27",
+            end_date="2026-06-16",
+            initial_cash=1000000,
+        )
+        self.assertGreater(ret, 0)
+        self.assertEqual(detail.loc[0, "strategy"], "second_round_hedge")
 
 
 if __name__ == "__main__":
