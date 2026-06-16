@@ -1,0 +1,26 @@
+{
+  "project": "sports_event_driven_quant_final",
+  "as_of_date": "2026-05-26",
+  "decision_use": "first_round_final_plan",
+  "integrated_factor_weights": {
+    "event_opportunity": 0.25,
+    "stock_linkage": 0.25,
+    "attention_confirmation": 0.20,
+    "market_timing": 0.15,
+    "tradable_risk_quality": 0.15
+  },
+  "constraints": {
+    "lot_size": 100,
+    "max_event_exposure": 0.25,
+    "max_position_per_stock": 0.10,
+    "max_industry_exposure": 0.20,
+    "min_cash_weight": 0.75
+  },
+  "review_rules": {
+    "weight_sum_required": 1.0,
+    "single_iteration_weight_change_limit": 0.05,
+    "new_stock_requires_evidence": true,
+    "hedge_orders_require_manual_approval": true
+  },
+  "reason": "第一轮只在中期后已生成模拟订单的可交易池内重排仓位；新增股票和真实热度接口进入下一轮，避免未经验证的标的扩散。"
+}

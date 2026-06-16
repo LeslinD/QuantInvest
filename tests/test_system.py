@@ -11,6 +11,7 @@ from quant_sports_event.factors import compute_symbol_features, estimate_constra
 from quant_sports_event.event_study import event_study, summarize_event_study
 from quant_sports_event.portfolio import build_target_weights
 from quant_sports_event.research_loop import run_research_loop
+from quant_sports_event.super_factors import build_super_factor_panel, validate_super_factor_weights
 from quant_sports_event.validation import EvidenceValidator
 
 
@@ -205,6 +206,49 @@ class FactorAndBacktestTests(unittest.TestCase):
 
 
 class ResearchLoopTests(unittest.TestCase):
+    def test_integrated_factor_weight_bounds(self):
+        validate_super_factor_weights()
+        with self.assertRaises(ValueError):
+            validate_super_factor_weights(
+                {
+                    "event_opportunity": 0.10,
+                    "stock_linkage": 0.40,
+                    "attention_confirmation": 0.20,
+                    "market_timing": 0.15,
+                    "tradable_risk_quality": 0.15,
+                }
+            )
+
+    def test_integrated_factor_panel_scores(self):
+        scores = pd.DataFrame(
+            [
+                {
+                    "ticker": "A.SH",
+                    "name": "A",
+                    "industry": "x",
+                    "z_exposure": 1.0,
+                    "z_attention": 1.0,
+                    "z_momentum": 0.5,
+                    "z_liquidity": 0.2,
+                    "z_low_volatility": 0.4,
+                },
+                {
+                    "ticker": "B.SH",
+                    "name": "B",
+                    "industry": "y",
+                    "z_exposure": -1.0,
+                    "z_attention": -1.0,
+                    "z_momentum": -0.5,
+                    "z_liquidity": -0.2,
+                    "z_low_volatility": -0.4,
+                },
+            ]
+        )
+        panel = build_super_factor_panel(scores, eligible_tickers=["A.SH"])
+        self.assertIn("integrated_score", panel)
+        self.assertTrue(panel.loc[panel["ticker"] == "A.SH", "eligible_for_loop_001"].iloc[0])
+        self.assertFalse(panel.loc[panel["ticker"] == "B.SH", "eligible_for_loop_001"].iloc[0])
+
     def test_research_loop_writes_diagnostics(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
@@ -239,8 +283,32 @@ class ResearchLoopTests(unittest.TestCase):
             (results / "run_summary_2026-05-26.json").write_text(json.dumps(summary), encoding="utf-8")
             pd.DataFrame(
                 [
-                    {"ticker": "600060.SH", "company": "海信视像", "industry": "显示设备", "target_weight": 0.12},
-                    {"ticker": "605099.SH", "company": "共创草坪", "industry": "体育设施", "target_weight": 0.03},
+                    {
+                        "decision_date": "2026-05-26",
+                        "order_date": "2026-05-27",
+                        "ticker": "600060.SH",
+                        "sina_symbol": "sh600060",
+                        "company": "海信视像",
+                        "industry": "显示设备",
+                        "target_weight": 0.12,
+                        "reference_close": 25.0,
+                        "estimated_trade_value": 120000.0,
+                        "expected_cost": 150.0,
+                        "board": "main",
+                    },
+                    {
+                        "decision_date": "2026-05-26",
+                        "order_date": "2026-05-27",
+                        "ticker": "605099.SH",
+                        "sina_symbol": "sh605099",
+                        "company": "共创草坪",
+                        "industry": "体育设施",
+                        "target_weight": 0.03,
+                        "reference_close": 40.0,
+                        "estimated_trade_value": 30000.0,
+                        "expected_cost": 45.0,
+                        "board": "main",
+                    },
                 ]
             ).to_csv(results / "paper_orders_2026-05-27.csv", index=False)
             pd.DataFrame(
@@ -277,11 +345,16 @@ class ResearchLoopTests(unittest.TestCase):
             self.assertTrue((final / "diagnostic_report.md").exists())
             self.assertTrue((final / "holding_attribution.csv").exists())
             self.assertTrue((final / "event_diagnostics.csv").exists())
+            self.assertTrue((final / "factor_panel_final.csv").exists())
+            self.assertTrue((final / "paper_orders_final_2026-05-27.csv").exists())
+            self.assertTrue((final / "risk_report.csv").exists())
+            final_orders = pd.read_csv(final / "paper_orders_final_2026-05-27.csv")
+            self.assertLessEqual(final_orders["final_target_weight"].max(), 0.10 + 1e-9)
             tags = {finding["tag"] for finding in loop["findings"]}
             self.assertIn("small_sample_warning", tags)
             self.assertIn("overfit_gap", tags)
             self.assertIn("event_misfit", tags)
-            self.assertEqual(loop["decision"], "observe")
+            self.assertEqual(loop["decision"], "accept_first_round_risk_overlay")
 
 
 if __name__ == "__main__":
