@@ -1,4 +1,6 @@
 import unittest
+import json
+import tempfile
 from pathlib import Path
 
 import pandas as pd
@@ -8,6 +10,7 @@ from quant_sports_event.costs import CostModel, is_limit_down, is_limit_up, roun
 from quant_sports_event.factors import compute_symbol_features, estimate_constrained_rankic_weights, estimate_rankic_weights
 from quant_sports_event.event_study import event_study, summarize_event_study
 from quant_sports_event.portfolio import build_target_weights
+from quant_sports_event.research_loop import run_research_loop
 from quant_sports_event.validation import EvidenceValidator
 
 
@@ -199,6 +202,86 @@ class FactorAndBacktestTests(unittest.TestCase):
         )
         self.assertFalse(car.empty)
         self.assertFalse(summarize_event_study(car).empty)
+
+
+class ResearchLoopTests(unittest.TestCase):
+    def test_research_loop_writes_diagnostics(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            results = root / "outputs" / "results"
+            results.mkdir(parents=True)
+            summary = {
+                "as_of_date": "2026-05-26",
+                "run_hash": "abc",
+                "factor_weights": {
+                    "exposure": 0.16,
+                    "attention": 0.25,
+                    "momentum": 0.10,
+                    "liquidity": 0.05,
+                    "low_volatility": 0.44,
+                },
+                "backtest_summary": {
+                    "net_return": 0.11,
+                    "cost_to_initial_cash": 0.0025,
+                    "num_trades": 6,
+                },
+                "walk_forward_summary": {
+                    "net_return": 0.02,
+                    "cost_to_initial_cash": 0.001,
+                    "num_trades": 3,
+                },
+                "output_files": {
+                    "paper_orders": "/stale/path/paper_orders_2026-05-27.csv",
+                    "paper_scores": "/stale/path/paper_scores_2026-05-26.csv",
+                    "event_study_summary": "/stale/path/event_study_summary_2026-05-26.csv",
+                },
+            }
+            (results / "run_summary_2026-05-26.json").write_text(json.dumps(summary), encoding="utf-8")
+            pd.DataFrame(
+                [
+                    {"ticker": "600060.SH", "company": "海信视像", "industry": "显示设备", "target_weight": 0.12},
+                    {"ticker": "605099.SH", "company": "共创草坪", "industry": "体育设施", "target_weight": 0.03},
+                ]
+            ).to_csv(results / "paper_orders_2026-05-27.csv", index=False)
+            pd.DataFrame(
+                [
+                    {
+                        "ticker": "600060.SH",
+                        "name": "海信视像",
+                        "industry": "显示设备",
+                        "alpha_score": 1.2,
+                        "contrib_exposure": 0.2,
+                        "contrib_attention": 0.3,
+                    },
+                    {
+                        "ticker": "605099.SH",
+                        "name": "共创草坪",
+                        "industry": "体育设施",
+                        "alpha_score": 0.2,
+                        "contrib_exposure": 0.1,
+                        "contrib_attention": -0.1,
+                    },
+                ]
+            ).to_csv(results / "paper_scores_2026-05-26.csv", index=False)
+            pd.DataFrame(
+                [
+                    {"event_id": "PARIS_OLYMPICS_2024_OPEN", "window": "T-60_T-10", "caar": -0.05, "positive_rate": 0.3, "n": 10},
+                    {"event_id": "FIFA_WC_2022_OPEN", "window": "T-60_T-10", "caar": 0.20, "positive_rate": 0.9, "n": 10},
+                ]
+            ).to_csv(results / "event_study_summary_2026-05-26.csv", index=False)
+
+            loop = run_research_loop(root, as_of="2026-05-26")
+            final = root / "outputs" / "final"
+            self.assertTrue((final / "experiment_registry.csv").exists())
+            self.assertTrue((final / "iteration_log.csv").exists())
+            self.assertTrue((final / "diagnostic_report.md").exists())
+            self.assertTrue((final / "holding_attribution.csv").exists())
+            self.assertTrue((final / "event_diagnostics.csv").exists())
+            tags = {finding["tag"] for finding in loop["findings"]}
+            self.assertIn("small_sample_warning", tags)
+            self.assertIn("overfit_gap", tags)
+            self.assertIn("event_misfit", tags)
+            self.assertEqual(loop["decision"], "observe")
 
 
 if __name__ == "__main__":
