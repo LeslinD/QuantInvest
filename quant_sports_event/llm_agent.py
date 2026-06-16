@@ -16,10 +16,9 @@ class RuleBasedEventAgent:
 
     def extract_stock_links(self, event: Dict[str, Any], universe: Iterable[Dict[str, Any]]) -> List[Dict[str, Any]]:
         links = []
-        impact = float(event.get("impact_proxy", 1.0))
         for row in universe:
             evidence = (row.get("evidence") or [{}])[0]
-            confidence = min(0.98, max(0.01, float(row.get("base_exposure", 0.0)) * impact))
+            confidence = self._confidence(row, event)
             links.append(
                 {
                     "event_id": event["event_id"],
@@ -34,10 +33,25 @@ class RuleBasedEventAgent:
         return links
 
     @staticmethod
+    def _confidence(row: Dict[str, Any], event: Dict[str, Any]) -> float:
+        relation_types = row.get("relation_types", [])
+        chain_weights = event.get("chain_weights", {})
+        default_chain = float(event.get("default_chain_weight", chain_weights.get("default", 0.35)))
+        chain_score = max([float(chain_weights.get(item, default_chain)) for item in relation_types] or [default_chain])
+        base = float(row.get("base_exposure", 0.0))
+        impact = float(event.get("impact_proxy", 1.0))
+        domestic_attention = float(event.get("domestic_attention_score", 0.7))
+        stock_market_fit = float(event.get("stock_market_fit", event.get("event_fit", 1.0)))
+        event_multiplier = (0.55 + 0.45 * chain_score) * (0.65 + 0.35 * domestic_attention) * stock_market_fit
+        return min(0.98, max(0.01, base * impact * event_multiplier))
+
+    @staticmethod
     def _risk_flags(row: Dict[str, Any], event: Dict[str, Any]) -> List[str]:
         flags = []
         if row.get("base_exposure", 0) < 0.55:
             flags.append("事件暴露较弱，需限制仓位")
+        if float(event.get("stock_market_fit", event.get("event_fit", 1.0))) < 0.55:
+            flags.append("赛事关注度和A股标的链条匹配较弱")
         if event["event_id"].endswith("2026_OPEN"):
             flags.append("临近开幕，可能已被部分定价")
         return flags

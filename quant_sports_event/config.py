@@ -38,7 +38,14 @@ class ProjectConfig:
 def load_project_config(root: str | Path = ROOT) -> ProjectConfig:
     root = Path(root)
     raw = read_json(root / "configs" / "strategy.json")
-    events = read_json(root / "configs" / "events.json")
-    universe = read_json(root / "configs" / "universe.json")
+    data_config = raw.get("data", {})
+    events_path = Path(data_config.get("events_path", "configs/events.json"))
+    universe_path = Path(data_config.get("universe_path", "configs/universe.json"))
+    if not events_path.is_absolute():
+        events_path = root / events_path
+    if not universe_path.is_absolute():
+        universe_path = root / universe_path
+    events = read_json(events_path)
+    universe = read_json(universe_path)
     config_hash = stable_hash({"strategy": raw, "events": events, "universe": universe})
     return ProjectConfig(raw=raw, events=events, universe=universe, config_hash=config_hash)

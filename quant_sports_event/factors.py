@@ -101,11 +101,55 @@ def _normalize_positive(values: Dict[str, float], features: List[str]) -> Dict[s
     return {f: cleaned[f] / total for f in features}
 
 
+def _apply_weight_bounds(
+    weights: Dict[str, float],
+    features: List[str],
+    bounds: Dict[str, List[float]] | None,
+) -> Dict[str, float]:
+    if not bounds:
+        return _normalize_positive(weights, features)
+    lower = {f: float(bounds.get(f, [0.0, 1.0])[0]) for f in features}
+    upper = {f: float(bounds.get(f, [0.0, 1.0])[1]) for f in features}
+    if sum(lower.values()) > 1.0 or sum(upper.values()) < 1.0:
+        raise ValueError("Factor weight bounds must allow weights to sum to 1.0")
+    bounded = _normalize_positive(weights, features)
+    free = set(features)
+    fixed: Dict[str, float] = {}
+    for _ in range(len(features) + 1):
+        changed = False
+        for f in list(free):
+            if bounded[f] < lower[f]:
+                fixed[f] = lower[f]
+                free.remove(f)
+                changed = True
+            elif bounded[f] > upper[f]:
+                fixed[f] = upper[f]
+                free.remove(f)
+                changed = True
+        residual = 1.0 - sum(fixed.values())
+        if residual < -1e-9:
+            raise ValueError("Factor weight lower bounds exceed 1.0")
+        if free:
+            free_total = sum(max(0.0, bounded[f]) for f in free)
+            if free_total <= 0:
+                for f in free:
+                    bounded[f] = residual / len(free)
+            else:
+                for f in free:
+                    bounded[f] = bounded[f] / free_total * residual
+        for f, value in fixed.items():
+            bounded[f] = value
+        if not changed:
+            break
+    return _normalize_positive(bounded, features)
+
+
 def estimate_constrained_rankic_weights(
     samples: pd.DataFrame,
     features: List[str] | None = None,
     directions: Dict[str, int] | None = None,
     priors: Dict[str, float] | None = None,
+    bounds: Dict[str, List[float]] | None = None,
     prior_weight: float = 0.55,
 ) -> Dict[str, float]:
     """Estimate RankIC weights with finance-theory sign constraints."""
@@ -135,7 +179,7 @@ def estimate_constrained_rankic_weights(
         f: prior_weight * prior_norm[f] + (1 - prior_weight) * data_norm[f]
         for f in features
     }
-    return _normalize_positive(combined, features)
+    return _apply_weight_bounds(combined, features, bounds)
 
 
 def score_panel(panel: pd.DataFrame, weights: Dict[str, float], attention_z_cap: float | None = None) -> pd.DataFrame:

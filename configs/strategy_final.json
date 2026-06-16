@@ -22,5 +22,13 @@
     "new_stock_requires_evidence": true,
     "hedge_orders_require_manual_approval": true
   },
-  "reason": "第一轮只在中期后已生成模拟订单的可交易池内重排仓位；新增股票和真实热度接口进入下一轮，避免未经验证的标的扩散。"
+  "acceptance_metrics": {
+    "min_rolling_validation_trades": 5,
+    "min_rolling_validation_net_return": 0.0,
+    "min_backtest_net_return": 0.0,
+    "max_validation_gap": 0.03,
+    "min_benchmark_wins": 5,
+    "max_cost_to_initial_cash": 0.004
+  },
+  "reason": "第一轮在扩展事件库和股票池后生成模拟订单，再用综合因子和风险约束重排仓位；新增订单必须来自已通过事件链条和交易约束的候选池。"
 }

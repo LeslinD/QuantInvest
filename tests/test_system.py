@@ -5,10 +5,11 @@ from pathlib import Path
 
 import pandas as pd
 
-from quant_sports_event.backtest import run_event_backtest, walk_forward_search
+from quant_sports_event.backtest import benchmark_comparison, exposure_for_event, run_event_backtest, walk_forward_search
 from quant_sports_event.costs import CostModel, is_limit_down, is_limit_up, round_lot_shares
 from quant_sports_event.factors import compute_symbol_features, estimate_constrained_rankic_weights, estimate_rankic_weights
 from quant_sports_event.event_study import event_study, summarize_event_study
+from quant_sports_event.llm_agent import RuleBasedEventAgent
 from quant_sports_event.portfolio import build_target_weights
 from quant_sports_event.research_loop import run_research_loop
 from quant_sports_event.super_factors import build_super_factor_panel, validate_super_factor_weights
@@ -82,6 +83,39 @@ class ValidationTests(unittest.TestCase):
             ]
         )
         self.assertEqual(len(result.accepted), 1)
+
+    def test_rule_based_agent_uses_event_specific_chain_weights(self):
+        universe = [
+            {
+                "ticker": "600060.SH",
+                "sina_symbol": "sh600060",
+                "name": "海信视像",
+                "industry": "显示设备",
+                "board": "main",
+                "base_exposure": 0.86,
+                "relation_types": ["official_fifa_sponsor", "display_device"],
+                "evidence": [{"source_url": "https://example.com", "published_at": "2026-05-26", "claim": "supported"}],
+            }
+        ]
+        agent = RuleBasedEventAgent()
+        fifa = {
+            "event_id": "FIFA_WC_2026_OPEN",
+            "impact_proxy": 1.0,
+            "domestic_attention_score": 0.95,
+            "stock_market_fit": 0.95,
+            "chain_weights": {"official_fifa_sponsor": 1.0, "display_device": 0.95},
+        }
+        olympics = {
+            "event_id": "PARIS_OLYMPICS_2024_OPEN",
+            "impact_proxy": 0.9,
+            "domestic_attention_score": 0.95,
+            "stock_market_fit": 0.4,
+            "chain_weights": {"official_fifa_sponsor": 0.1, "display_device": 0.35},
+        }
+        fifa_confidence = agent.extract_stock_links(fifa, universe)[0]["confidence"]
+        olympics_confidence = agent.extract_stock_links(olympics, universe)[0]["confidence"]
+        self.assertGreater(fifa_confidence, olympics_confidence)
+        self.assertLess(olympics_confidence, 0.35)
 
 
 class CostTests(unittest.TestCase):
@@ -189,6 +223,27 @@ class FactorAndBacktestTests(unittest.TestCase):
         }
         result = run_event_backtest(frames, universe, {"A.SH": 0.8, "B.SH": 0.5}, events, params, cost, constraints, 100000)
         self.assertGreaterEqual(result.summary["num_trades"], 1)
+
+    def test_event_specific_exposure_lookup(self):
+        exposures = {"E1": {"A.SH": 0.8}, "E2": {"A.SH": 0.2}}
+        self.assertEqual(exposure_for_event(exposures, "E1")["A.SH"], 0.8)
+        self.assertEqual(exposure_for_event({"A.SH": 0.5}, "E1")["A.SH"], 0.5)
+
+    def test_benchmark_comparison_runs(self):
+        trades = pd.DataFrame(
+            [
+                {
+                    "buy_date": "2024-01-02",
+                    "sell_date": "2024-01-05",
+                    "target_weight": 0.1,
+                    "net_return_on_initial_cash": 0.02,
+                }
+            ]
+        )
+        bench = synthetic_frame("bench", start="2024-01-01", periods=10)
+        report = benchmark_comparison(trades, {"bench": bench}, benchmark_names={"bench": "测试基准"})
+        self.assertEqual(report.loc[0, "benchmark_name"], "测试基准")
+        self.assertIn("excess_vs_benchmark_event_book", report)
 
     def test_event_study_runs(self):
         universe = [{"ticker": "A.SH", "sina_symbol": "sha", "name": "A", "industry": "x", "board": "main"}]

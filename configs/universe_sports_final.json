@@ -1,0 +1,290 @@
+[
+  {
+    "ticker": "600060.SH",
+    "sina_symbol": "sh600060",
+    "name": "海信视像",
+    "industry": "显示设备",
+    "board": "main",
+    "base_exposure": 0.86,
+    "relation_types": ["official_fifa_sponsor", "display_device", "sports_marketing"],
+    "evidence": [
+      {
+        "source_url": "https://inside.fifa.com/media-releases/hisense-continues-long-standing-partnership-world-cup-26-sponsor",
+        "source_type": "official_sports_rights",
+        "published_at": "2025-09-05",
+        "retrieved_at": "2026-05-26T15:30:00+08:00",
+        "claim": "Hisense became a FIFA World Cup 26 sponsor, giving the display-device chain direct event evidence."
+      }
+    ]
+  },
+  {
+    "ticker": "600158.SH",
+    "sina_symbol": "sh600158",
+    "name": "中体产业",
+    "industry": "体育运营",
+    "board": "main",
+    "base_exposure": 0.68,
+    "relation_types": ["sports_operation", "sports_events"],
+    "evidence": [
+      {
+        "source_url": "https://www.csig158.com/",
+        "source_type": "company_website",
+        "published_at": "2026-05-26",
+        "retrieved_at": "2026-05-26T15:30:00+08:00",
+        "claim": "Company business is linked to sports operation and sports industry services."
+      }
+    ]
+  },
+  {
+    "ticker": "605099.SH",
+    "sina_symbol": "sh605099",
+    "name": "共创草坪",
+    "industry": "体育设施",
+    "board": "main",
+    "base_exposure": 0.62,
+    "relation_types": ["sports_facility", "artificial_turf"],
+    "evidence": [
+      {
+        "source_url": "https://www.ccgrass.com/",
+        "source_type": "company_website",
+        "published_at": "2026-05-26",
+        "retrieved_at": "2026-05-26T15:30:00+08:00",
+        "claim": "Company business is linked to artificial turf and sports facility supply."
+      }
+    ]
+  },
+  {
+    "ticker": "002858.SZ",
+    "sina_symbol": "sz002858",
+    "name": "力盛体育",
+    "industry": "体育赛事",
+    "board": "main",
+    "base_exposure": 0.58,
+    "relation_types": ["sports_events", "sports_operation"],
+    "evidence": [
+      {
+        "source_url": "https://www.lishengsports.com/",
+        "source_type": "company_website",
+        "published_at": "2026-05-26",
+        "retrieved_at": "2026-05-26T15:30:00+08:00",
+        "claim": "Company business is linked to sports event operation."
+      }
+    ]
+  },
+  {
+    "ticker": "605299.SH",
+    "sina_symbol": "sh605299",
+    "name": "舒华体育",
+    "industry": "体育消费",
+    "board": "main",
+    "base_exposure": 0.55,
+    "relation_types": ["sports_consumption", "fitness_equipment"],
+    "evidence": [
+      {
+        "source_url": "https://www.shuhua.com/",
+        "source_type": "company_website",
+        "published_at": "2026-05-26",
+        "retrieved_at": "2026-05-26T15:30:00+08:00",
+        "claim": "Company business is linked to sports fitness equipment and sports consumption."
+      }
+    ]
+  },
+  {
+    "ticker": "000558.SZ",
+    "sina_symbol": "sz000558",
+    "name": "莱茵体育",
+    "industry": "体育运营",
+    "board": "main",
+    "base_exposure": 0.52,
+    "relation_types": ["sports_operation"],
+    "evidence": [
+      {
+        "source_url": "https://www.lander.com.cn/",
+        "source_type": "company_website",
+        "published_at": "2026-05-26",
+        "retrieved_at": "2026-05-26T15:30:00+08:00",
+        "claim": "Company business name and operating scope link it to sports operation."
+      }
+    ]
+  },
+  {
+    "ticker": "300651.SZ",
+    "sina_symbol": "sz300651",
+    "name": "金陵体育",
+    "industry": "体育器材",
+    "board": "chi_next",
+    "base_exposure": 0.50,
+    "relation_types": ["sports_equipment", "sports_facility"],
+    "evidence": [
+      {
+        "source_url": "https://www.jlsports.com/",
+        "source_type": "company_website",
+        "published_at": "2026-05-26",
+        "retrieved_at": "2026-05-26T15:30:00+08:00",
+        "claim": "Company business is linked to sports equipment and venue equipment."
+      }
+    ]
+  },
+  {
+    "ticker": "002587.SZ",
+    "sina_symbol": "sz002587",
+    "name": "奥拓电子",
+    "industry": "显示设备",
+    "board": "main",
+    "base_exposure": 0.48,
+    "relation_types": ["led_display", "venue_display"],
+    "evidence": [
+      {
+        "source_url": "https://www.aoto.com/",
+        "source_type": "company_website",
+        "published_at": "2026-05-26",
+        "retrieved_at": "2026-05-26T15:30:00+08:00",
+        "claim": "Company business is linked to LED display and venue display."
+      }
+    ]
+  },
+  {
+    "ticker": "300162.SZ",
+    "sina_symbol": "sz300162",
+    "name": "雷曼光电",
+    "industry": "显示设备",
+    "board": "chi_next",
+    "base_exposure": 0.46,
+    "relation_types": ["led_display", "sports_marketing"],
+    "evidence": [
+      {
+        "source_url": "https://www.ledman.com/",
+        "source_type": "company_website",
+        "published_at": "2026-05-26",
+        "retrieved_at": "2026-05-26T15:30:00+08:00",
+        "claim": "Company business is linked to LED display and sports marketing."
+      }
+    ]
+  },
+  {
+    "ticker": "300005.SZ",
+    "sina_symbol": "sz300005",
+    "name": "探路者",
+    "industry": "户外用品",
+    "board": "chi_next",
+    "base_exposure": 0.50,
+    "relation_types": ["outdoor", "sports_consumption", "winter_sports"],
+    "evidence": [
+      {
+        "source_url": "https://www.toread.com.cn/",
+        "source_type": "company_website",
+        "published_at": "2026-05-26",
+        "retrieved_at": "2026-05-26T15:30:00+08:00",
+        "claim": "Company business is linked to outdoor sports products."
+      }
+    ]
+  },
+  {
+    "ticker": "002780.SZ",
+    "sina_symbol": "sz002780",
+    "name": "三夫户外",
+    "industry": "户外用品",
+    "board": "main",
+    "base_exposure": 0.48,
+    "relation_types": ["outdoor", "sports_consumption", "winter_sports"],
+    "evidence": [
+      {
+        "source_url": "https://www.sanfo.com/",
+        "source_type": "company_website",
+        "published_at": "2026-05-26",
+        "retrieved_at": "2026-05-26T15:30:00+08:00",
+        "claim": "Company business is linked to outdoor sports retail and events."
+      }
+    ]
+  },
+  {
+    "ticker": "603908.SH",
+    "sina_symbol": "sh603908",
+    "name": "牧高笛",
+    "industry": "户外用品",
+    "board": "main",
+    "base_exposure": 0.44,
+    "relation_types": ["outdoor", "sports_consumption"],
+    "evidence": [
+      {
+        "source_url": "https://www.mobigarden.com.cn/",
+        "source_type": "company_website",
+        "published_at": "2026-05-26",
+        "retrieved_at": "2026-05-26T15:30:00+08:00",
+        "claim": "Company business is linked to outdoor and camping products."
+      }
+    ]
+  },
+  {
+    "ticker": "002832.SZ",
+    "sina_symbol": "sz002832",
+    "name": "比音勒芬",
+    "industry": "体育消费",
+    "board": "main",
+    "base_exposure": 0.42,
+    "relation_types": ["sports_consumption", "golf_apparel"],
+    "evidence": [
+      {
+        "source_url": "https://www.biemlf.com/",
+        "source_type": "company_website",
+        "published_at": "2026-05-26",
+        "retrieved_at": "2026-05-26T15:30:00+08:00",
+        "claim": "Company business is linked to sports apparel and golf consumption."
+      }
+    ]
+  },
+  {
+    "ticker": "002181.SZ",
+    "sina_symbol": "sz002181",
+    "name": "粤传媒",
+    "industry": "传媒彩票",
+    "board": "main",
+    "base_exposure": 0.40,
+    "relation_types": ["media", "lottery_attention"],
+    "evidence": [
+      {
+        "source_url": "https://www.gdcm.com.cn/",
+        "source_type": "company_website",
+        "published_at": "2026-05-26",
+        "retrieved_at": "2026-05-26T15:30:00+08:00",
+        "claim": "Company business is linked to media content and advertising."
+      }
+    ]
+  },
+  {
+    "ticker": "002878.SZ",
+    "sina_symbol": "sz002878",
+    "name": "元隆雅图",
+    "industry": "IP衍生品",
+    "board": "main",
+    "base_exposure": 0.38,
+    "relation_types": ["licensed_merchandise", "ip_products"],
+    "evidence": [
+      {
+        "source_url": "https://www.ylyato.com/",
+        "source_type": "company_website",
+        "published_at": "2026-05-26",
+        "retrieved_at": "2026-05-26T15:30:00+08:00",
+        "claim": "Company business is linked to promotional products and IP derivative products."
+      }
+    ]
+  },
+  {
+    "ticker": "002400.SZ",
+    "sina_symbol": "sz002400",
+    "name": "省广集团",
+    "industry": "营销服务",
+    "board": "main",
+    "base_exposure": 0.36,
+    "relation_types": ["sports_marketing", "media"],
+    "evidence": [
+      {
+        "source_url": "https://www.gimc.cn/",
+        "source_type": "company_website",
+        "published_at": "2026-05-26",
+        "retrieved_at": "2026-05-26T15:30:00+08:00",
+        "claim": "Company business is linked to marketing communication services."
+      }
+    ]
+  }
+]

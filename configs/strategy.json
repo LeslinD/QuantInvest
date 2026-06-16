@@ -4,10 +4,21 @@
   "initial_cash": 1000000.0,
   "benchmark_symbol": "sh000300",
   "secondary_benchmark_symbol": "sh000852",
+  "benchmark_symbols": ["sh000300", "sh000905", "sh000852", "sh000001", "sz399001", "sz399006"],
+  "benchmark_names": {
+    "sh000300": "沪深300",
+    "sh000905": "中证500",
+    "sh000852": "中证1000",
+    "sh000001": "上证指数",
+    "sz399001": "深证成指",
+    "sz399006": "创业板指"
+  },
   "data": {
     "provider": "sina",
     "datalen": 1500,
-    "snapshot_dir": "outputs/data_snapshots"
+    "snapshot_dir": "outputs/data_snapshots",
+    "events_path": "configs/events_sports_final.json",
+    "universe_path": "configs/universe_sports_final.json"
   },
   "costs": {
     "commission_rate": 0.0003,
@@ -22,10 +33,10 @@
   },
   "constraints": {
     "lot_size": 100,
-    "max_position_per_stock": 0.12,
-    "max_event_exposure": 0.40,
-    "min_cash_weight": 0.60,
-    "max_industry_exposure": 0.25,
+    "max_position_per_stock": 0.10,
+    "max_event_exposure": 0.30,
+    "min_cash_weight": 0.70,
+    "max_industry_exposure": 0.20,
     "main_board_limit_pct": 0.10,
     "chi_next_star_limit_pct": 0.20
   },
@@ -39,27 +50,34 @@
       "low_volatility": 1
     },
     "factor_priors": {
-      "exposure": 0.30,
-      "attention": 0.25,
-      "momentum": 0.20,
+      "exposure": 0.32,
+      "attention": 0.22,
+      "momentum": 0.18,
       "liquidity": 0.10,
-      "low_volatility": 0.15
+      "low_volatility": 0.18
+    },
+    "factor_weight_bounds": {
+      "exposure": [0.20, 0.40],
+      "attention": [0.10, 0.30],
+      "momentum": [0.08, 0.25],
+      "liquidity": [0.05, 0.15],
+      "low_volatility": [0.10, 0.40]
     },
     "description": "RankIC 权重向金融理论先验收缩，并对所有因子施加正向符号约束；事件暴露作为交易资格门槛，避免小样本下把低相关标的推到高仓位。"
   },
   "hyperparameter_grid": {
-    "attention_lookback": [10, 20],
-    "momentum_lookback": [20],
-    "entry_days_before_event": [90, 60],
+    "attention_lookback": [20],
+    "momentum_lookback": [40],
+    "entry_days_before_event": [90],
     "exit_days_before_event": [10],
-    "top_k": [3, 5],
-    "stop_loss": [0.08, 0.10],
-    "stop_vol_multiplier": [4.0, 5.0],
+    "top_k": [5],
+    "stop_loss": [0.08],
+    "stop_vol_multiplier": [4.0],
     "max_effective_stop_loss": [0.12],
-    "min_exposure_for_trade": [0.45, 0.50],
-    "min_event_fit_for_trade": [0.70],
-    "rankic_prior_weight": [0.55],
-    "attention_z_cap": [1.0, 1.5]
+    "min_exposure_for_trade": [0.30],
+    "min_event_fit_for_trade": [0.45],
+    "rankic_prior_weight": [0.65],
+    "attention_z_cap": [1.0]
   },
   "paper_trading": {
     "event_id": "FIFA_WC_2026_OPEN",

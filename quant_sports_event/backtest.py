@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from itertools import product
-from typing import Dict, Iterable, List, Tuple
+from typing import Any, Dict, Iterable, List, Tuple
 
 import numpy as np
 import pandas as pd
@@ -19,6 +19,15 @@ class BacktestResult:
     trades: pd.DataFrame
     summary: Dict[str, float]
     samples: pd.DataFrame
+
+
+def exposure_for_event(exposure_by_ticker: Dict[str, Any], event_id: str) -> Dict[str, float]:
+    if not exposure_by_ticker:
+        return {}
+    first_value = next(iter(exposure_by_ticker.values()))
+    if isinstance(first_value, dict):
+        return {ticker: float(value) for ticker, value in exposure_by_ticker.get(event_id, {}).items()}
+    return {ticker: float(value) for ticker, value in exposure_by_ticker.items()}
 
 
 def _trading_date_on_or_before(df: pd.DataFrame, date: pd.Timestamp) -> pd.Timestamp | None:
@@ -60,7 +69,7 @@ def make_training_samples(
         panel = factor_panel_for_date(
             frames,
             universe,
-            exposure_by_ticker,
+            exposure_for_event(exposure_by_ticker, event["event_id"]),
             decision.strftime("%Y-%m-%d"),
             params["attention_lookback"],
             params["momentum_lookback"],
@@ -109,6 +118,7 @@ def run_event_backtest(
         FEATURES,
         directions=model_config.get("factor_directions"),
         priors=model_config.get("factor_priors"),
+        bounds=model_config.get("factor_weight_bounds"),
         prior_weight=float(params.get("rankic_prior_weight", model_config.get("rankic_prior_weight", 0.55))),
     )
     trades = []
@@ -124,7 +134,7 @@ def run_event_backtest(
         panel = factor_panel_for_date(
             frames,
             universe,
-            exposure_by_ticker,
+            exposure_for_event(exposure_by_ticker, event["event_id"]),
             decision.strftime("%Y-%m-%d"),
             params["attention_lookback"],
             params["momentum_lookback"],
@@ -221,6 +231,55 @@ def summarize_trades(trades: pd.DataFrame, initial_cash: float, benchmark: pd.Da
         "cost_to_initial_cash": costs / initial_cash,
         "avg_target_weight": float(trades["target_weight"].mean()),
     }
+
+
+def _benchmark_return(benchmark: pd.DataFrame, buy_date: str, sell_date: str) -> float:
+    if benchmark is None or benchmark.empty:
+        return 0.0
+    buy = pd.to_datetime(buy_date)
+    sell = pd.to_datetime(sell_date)
+    buy_rows = benchmark[benchmark["date"] >= buy]
+    sell_rows = benchmark[benchmark["date"] >= sell]
+    if buy_rows.empty or sell_rows.empty:
+        return 0.0
+    buy_price = float(buy_rows.iloc[0]["open"])
+    sell_price = float(sell_rows.iloc[0]["open"])
+    if buy_price <= 0:
+        return 0.0
+    return sell_price / buy_price - 1
+
+
+def benchmark_comparison(
+    trades: pd.DataFrame,
+    benchmarks: Dict[str, pd.DataFrame],
+    *,
+    benchmark_names: Dict[str, str] | None = None,
+) -> pd.DataFrame:
+    benchmark_names = benchmark_names or {}
+    strategy_return = float(trades["net_return_on_initial_cash"].sum()) if not trades.empty else 0.0
+    rows = []
+    for symbol, frame in benchmarks.items():
+        implied_return = 0.0
+        weighted_gross = 0.0
+        observations = 0
+        if not trades.empty:
+            for _, trade in trades.iterrows():
+                bench_ret = _benchmark_return(frame, trade["buy_date"], trade["sell_date"])
+                implied_return += float(trade["target_weight"]) * bench_ret
+                weighted_gross += bench_ret
+                observations += 1
+        rows.append(
+            {
+                "benchmark_symbol": symbol,
+                "benchmark_name": benchmark_names.get(symbol, symbol),
+                "strategy_net_return_on_initial_cash": strategy_return,
+                "benchmark_event_book_return": implied_return,
+                "benchmark_mean_trade_window_return": weighted_gross / observations if observations else 0.0,
+                "excess_vs_benchmark_event_book": strategy_return - implied_return,
+                "observations": observations,
+            }
+        )
+    return pd.DataFrame(rows).sort_values("excess_vs_benchmark_event_book", ascending=False).reset_index(drop=True)
 
 
 def walk_forward_search(

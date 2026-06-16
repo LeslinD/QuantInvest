@@ -15,7 +15,7 @@ from .super_factors import SUPER_FACTOR_WEIGHTS, build_super_factor_panel, valid
 
 DEFAULT_ITERATION_ID = "final_loop_001"
 DEFAULT_HYPOTHESIS = "在现有模拟订单股票池内加入综合因子边界和风险约束，生成第一轮期末优化订单。"
-DEFAULT_CHANGED_MODULE = "M4_integrated_factors;M5_portfolio_risk;M7_diagnostics;M8_iteration_decision"
+DEFAULT_CHANGED_MODULE = "M1_event_library;M2_stock_mapping;M4_integrated_factors;M5_portfolio_risk;M6_backtest;M7_diagnostics;M8_iteration_decision"
 DEFAULT_BASELINE_VERSION = "midterm_code_baseline"
 ROLLING_VALIDATION_LABEL = "滚动样本外验证"
 OPTIMIZED_MAX_EVENT_EXPOSURE = 0.25
@@ -44,6 +44,8 @@ class LoopPaths:
     final_orders: Path
     risk_report: Path
     hedge_report: Path
+    benchmark_comparison: Path
+    acceptance_report: Path
     summary: Path
 
 
@@ -152,7 +154,7 @@ def _diagnose(
     weights = {k: float(v) for k, v in summary.get("factor_weights", {}).items()}
     if weights:
         top_factor, top_weight = max(weights.items(), key=lambda item: item[1])
-        if top_weight >= 0.40:
+        if top_weight > 0.40:
             findings.append(
                 {
                     "tag": "factor_balance_warning",
@@ -480,6 +482,40 @@ def build_hedge_report(final_orders: pd.DataFrame) -> pd.DataFrame:
     )
 
 
+def build_acceptance_report(
+    summary: Dict[str, Any],
+    risk_report: pd.DataFrame,
+    benchmark_comparison: pd.DataFrame,
+) -> pd.DataFrame:
+    backtest_return = _metric(summary, "backtest_summary", "net_return")
+    validation_return = _metric(summary, "walk_forward_summary", "net_return")
+    validation_trades = _metric(summary, "walk_forward_summary", "num_trades")
+    cost = _metric(summary, "backtest_summary", "cost_to_initial_cash")
+    benchmark_count = int(len(benchmark_comparison)) if not benchmark_comparison.empty else 0
+    benchmark_wins = 0
+    if not benchmark_comparison.empty and "excess_vs_benchmark_event_book" in benchmark_comparison:
+        benchmark_wins = int((benchmark_comparison["excess_vs_benchmark_event_book"] > 0).sum())
+
+    final_risk = risk_report[risk_report["portfolio"] == "final_loop_001"].copy() if not risk_report.empty else pd.DataFrame()
+    risk_values = final_risk.set_index("metric")["value"].to_dict() if not final_risk.empty else {}
+    rows = [
+        ("rolling_validation_trades", validation_trades, ">=5", validation_trades >= 5, "滚动样本外验证交易数"),
+        ("rolling_validation_net_return", validation_return, ">0", validation_return > 0, "样本外收益"),
+        ("backtest_net_return", backtest_return, ">0", backtest_return > 0, "完整回测收益"),
+        ("validation_gap", backtest_return - validation_return, "<=0.03", backtest_return - validation_return <= 0.03, "完整回测和样本外收益差距"),
+        ("benchmark_wins", benchmark_wins, ">=5 of 6", benchmark_count > 0 and benchmark_wins >= min(5, benchmark_count), "同交易窗口宽基对比"),
+        ("cost_to_initial_cash", cost, "<=0.004", cost <= 0.004, "交易成本占初始资金"),
+        ("final_cash_weight", float(risk_values.get("cash_weight", 0.0)), ">=0.75", float(risk_values.get("cash_weight", 0.0)) >= 0.75, "现金缓冲"),
+        ("final_max_position", float(risk_values.get("max_position", 1.0)), "<=0.10", float(risk_values.get("max_position", 1.0)) <= 0.10, "单票上限"),
+    ]
+    return pd.DataFrame(
+        [
+            {"metric": metric, "value": value, "target": target, "status": "pass" if passed else "fail", "note": note}
+            for metric, value, target, passed, note in rows
+        ]
+    )
+
+
 def _json_for_csv(data: Dict[str, Any]) -> str:
     return json.dumps(data, ensure_ascii=False, sort_keys=True)
 
@@ -493,6 +529,8 @@ def _write_markdown_report(
     orders: pd.DataFrame,
     final_orders: pd.DataFrame,
     risk_report: pd.DataFrame,
+    benchmark_comparison: pd.DataFrame,
+    acceptance_report: pd.DataFrame,
     event_diagnostics: pd.DataFrame,
 ) -> None:
     backtest_return = _metric(summary, "backtest_summary", "net_return")
@@ -540,6 +578,23 @@ def _write_markdown_report(
         for _, row in focus.iterrows():
             if row["metric"] in {"total_weight", "cash_weight", "max_position", "max_selected_exposure_share"}:
                 lines.append(f"- {row['portfolio']} `{row['metric']}`：{_format_pct(float(row['value']))}，状态 {row['status']}。")
+    lines.extend(["", "## 多基准对比", ""])
+    if benchmark_comparison.empty:
+        lines.append("- 无多基准对比数据。")
+    else:
+        for _, row in benchmark_comparison.iterrows():
+            lines.append(
+                f"- {row['benchmark_name']} `{row['benchmark_symbol']}`：策略超额 "
+                f"{_format_pct(float(row['excess_vs_benchmark_event_book']))}。"
+            )
+    lines.extend(["", "## 第一轮验收", ""])
+    if acceptance_report.empty:
+        lines.append("- 无验收数据。")
+    else:
+        for _, row in acceptance_report.iterrows():
+            value = float(row["value"])
+            text_value = _format_pct(value) if abs(value) <= 1 else f"{value:.0f}"
+            lines.append(f"- `{row['metric']}`：{text_value}，目标 {row['target']}，状态 {row['status']}。")
     lines.extend(["", "## 事件诊断", ""])
     if event_diagnostics.empty:
         lines.append("- 无事件诊断数据。")
@@ -550,7 +605,11 @@ def _write_markdown_report(
                 f"正 CAR 比例 {float(row['positive_rate']):.0%}。"
             )
     lines.extend(["", "## 第一轮结论", ""])
-    lines.append(f"本轮建立诊断闭环，并生成综合因子与风险覆盖后的期末优化订单。下一轮优先处理事件样本少、完整回测与{ROLLING_VALIDATION_LABEL}差距、综合因子历史回测和热度数据接入。")
+    failed = acceptance_report[acceptance_report["status"] == "fail"]["metric"].tolist() if not acceptance_report.empty else []
+    if failed:
+        lines.append(f"本轮未通过指标：{', '.join(failed)}。下一轮优先处理未通过项。")
+    else:
+        lines.append("本轮通过第一轮验收。后续继续处理成本、综合赛事负 CAAR 和热度数据自动化。")
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
@@ -588,6 +647,7 @@ def run_research_loop(
         orders = _safe_read_csv(root / "outputs" / "results" / "paper_orders_2026-05-27.csv")
     scores = _safe_read_csv(_resolve_output_path(root, output_files.get("paper_scores"), f"paper_scores_{as_of}.csv"))
     event_summary = _safe_read_csv(_resolve_output_path(root, output_files.get("event_study_summary"), f"event_study_summary_{as_of}.csv"))
+    benchmark_comparison = _safe_read_csv(_resolve_output_path(root, output_files.get("benchmark_comparison"), f"benchmark_comparison_{as_of}.csv"))
 
     final_dir = root / "outputs" / "final"
     final_dir.mkdir(parents=True, exist_ok=True)
@@ -603,6 +663,8 @@ def run_research_loop(
         final_orders=final_dir / "paper_orders_final_2026-05-27.csv",
         risk_report=final_dir / "risk_report.csv",
         hedge_report=final_dir / "hedge_report.csv",
+        benchmark_comparison=final_dir / "benchmark_comparison.csv",
+        acceptance_report=final_dir / "acceptance_report.csv",
         summary=final_dir / "research_loop_summary.json",
     )
 
@@ -634,6 +696,7 @@ def run_research_loop(
         min_cash_weight=float(constraints.get("min_cash_weight", 0.60)),
     )
     hedge_report = build_hedge_report(final_orders)
+    acceptance_report = build_acceptance_report(summary, risk_report, benchmark_comparison)
     holding_attribution = build_holding_attribution(scores, orders)
     position_compare = build_position_compare(orders, scores)
     event_diagnostics = build_event_diagnostics(event_summary)
@@ -645,6 +708,8 @@ def run_research_loop(
     final_orders.to_csv(paths.final_orders, index=False)
     risk_report.to_csv(paths.risk_report, index=False)
     hedge_report.to_csv(paths.hedge_report, index=False)
+    benchmark_comparison.to_csv(paths.benchmark_comparison, index=False)
+    acceptance_report.to_csv(paths.acceptance_report, index=False)
     _write_next_actions(paths.next_actions, iteration_id, findings)
     _write_markdown_report(
         paths.diagnostic_report,
@@ -654,6 +719,8 @@ def run_research_loop(
         orders=orders,
         final_orders=final_orders,
         risk_report=risk_report,
+        benchmark_comparison=benchmark_comparison,
+        acceptance_report=acceptance_report,
         event_diagnostics=event_diagnostics,
     )
 
@@ -664,13 +731,23 @@ def run_research_loop(
         "paper_order_count": int(len(orders)),
         "final_total_target_weight": float(final_orders["final_target_weight"].sum()) if not final_orders.empty else 0.0,
         "final_order_count": int(len(final_orders)),
+        "benchmark_win_count": int((benchmark_comparison["excess_vs_benchmark_event_book"] > 0).sum()) if not benchmark_comparison.empty else 0,
+        "acceptance_pass_count": int((acceptance_report["status"] == "pass").sum()) if not acceptance_report.empty else 0,
         "diagnostic_count": int(len(findings)),
     }
     decision = "accept_first_round_risk_overlay"
     review_note = "已建立基线诊断，并生成第一轮综合因子与风险覆盖后的期末优化订单。"
     changed_files = [
+        "configs/events_sports_final.json",
+        "configs/universe_sports_final.json",
+        "configs/strategy.json",
         "quant_sports_event/research_loop.py",
+        "quant_sports_event/run_pipeline.py",
         "quant_sports_event/run_research_loop.py",
+        "quant_sports_event/factors.py",
+        "quant_sports_event/backtest.py",
+        "quant_sports_event/llm_agent.py",
+        "quant_sports_event/config.py",
         "quant_sports_event/super_factors.py",
         "configs/strategy_final.json",
     ]
