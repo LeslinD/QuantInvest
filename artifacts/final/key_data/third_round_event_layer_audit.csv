@@ -1,0 +1,12 @@
+event_id,event_name,sport,event_date,domestic_attention_score,stock_market_fit,event_layer,event_layer_prior,event_score,readiness_score,financial_action,system_action,entry_days_before_event,exit_days_before_event,top_k,layer_reason,action_reason
+FIFA_WC_2022_OPEN,2022 FIFA World Cup opening,football,2022-11-20,0.95,0.9,S,1.0,0.9624999999999999,0.9624999999999999,core_trade,trade,90,10,3,世界杯具备最高国内关注度、官方赛程确定性和清晰商业映射。,事件评分和标的匹配都满足核心交易要求。
+CHENGDU_FISU_2023_OPEN,Chengdu FISU World University Games opening,multi_sport_china,2023-07-28,0.85,0.65,A,0.75,0.8749999999999999,0.6562499999999999,selective_trade,trade,90,10,3,综合或冰雪赛事热度较高，但需要更强标的匹配才能放大仓位。,只交易已有业务证据和成交确认的标的。
+HANGZHOU_ASIAD_2023_OPEN,Hangzhou Asian Games opening,multi_sport_china,2023-09-23,1.0,0.75,S,1.0,0.9375,0.9375,core_trade,trade,90,10,3,国内大型综合赛事关注度高，且 A 股映射得分达到核心交易要求。,事件评分和标的匹配都满足核心交易要求。
+AFC_ASIAN_CUP_2024_OPEN,AFC Asian Cup Qatar 2023 opening,football,2024-01-12,0.65,0.55,B,0.55,0.8,0.44000000000000006,small_validation,trade,90,10,3,关注度或 A 股映射存在不确定性，只适合小仓验证或观察。,只允许低仓或历史检验，不作为核心模拟盘。
+UEFA_EURO_2024_OPEN,UEFA EURO 2024 opening,football,2024-06-14,0.6,0.55,A,0.75,0.7874999999999999,0.590625,observe_only,trade,90,10,3,欧洲杯属于高关注足球事件，但国内商业映射弱于世界杯。,事件分层与 A 股映射不足以支持交易仓位。
+PARIS_OLYMPICS_2024_OPEN,Paris 2024 Olympic Games opening,multi_sport_global,2024-07-26,0.95,0.4,B,0.55,0.8374999999999999,0.460625,observe_only,avoid,,,,关注度或 A 股映射存在不确定性，只适合小仓验证或观察。,境外综合赛事的社会热度高，但当前A股候选池缺少稳定收入链条。
+HARBIN_ASIAN_WINTER_2025_OPEN,Harbin 2025 Asian Winter Games opening,winter_sport_china,2025-02-07,0.9,0.65,A,0.75,0.8875,0.6656249999999999,selective_trade,trade,30,0,1,综合或冰雪赛事热度较高，但需要更强标的匹配才能放大仓位。,只交易已有业务证据和成交确认的标的。
+FIFA_CLUB_WORLD_CUP_2025_OPEN,FIFA Club World Cup 2025 opening,football,2025-06-14,0.55,0.8,B,0.55,0.8374999999999999,0.460625,small_validation,trade,90,10,3,关注度或 A 股映射存在不确定性，只适合小仓验证或观察。,只允许低仓或历史检验，不作为核心模拟盘。
+NATIONAL_GAMES_2025_OPEN,15th National Games of China opening,multi_sport_china,2025-11-09,1.0,0.8,S,1.0,0.95,0.95,core_trade,trade,90,10,3,国内大型综合赛事关注度高，且 A 股映射得分达到核心交易要求。,事件评分和标的匹配都满足核心交易要求。
+MILANO_CORTINA_2026_OPEN,Milano Cortina 2026 Winter Olympics opening,winter_sport_global,2026-02-06,0.7,0.45,A,0.75,0.7875,0.590625,observe_only,trade,45,10,1,综合或冰雪赛事热度较高，但需要更强标的匹配才能放大仓位。,事件分层与 A 股映射不足以支持交易仓位。
+FIFA_WC_2026_OPEN,2026 FIFA World Cup opening,football,2026-06-11,0.95,0.95,S,1.0,0.9749999999999999,0.9749999999999999,core_trade,trade,90,10,3,世界杯具备最高国内关注度、官方赛程确定性和清晰商业映射。,事件评分和标的匹配都满足核心交易要求。

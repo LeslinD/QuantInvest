@@ -1,0 +1,17 @@
+ticker,company,industry,chain_level,relation_types,usable_evidence_count,independent_source_count,source_types,evidence_status,first_source,second_source,decision_note
+600060.SH,海信视像,显示设备,L1,official_fifa_sponsor;display_device;sports_marketing,2,1,company_press_release;official_sports_rights,core_confirmed,https://inside.fifa.com/media-releases/hisense-continues-long-standing-partnership-world-cup-26-sponsor,https://www.hisense-b2b.com/en/hisense-becomes-official-fifa-world-cup-26-sponsor,证据数量和独立来源满足核心候选要求。
+600158.SH,中体产业,体育运营,L2,sports_operation;sports_events,2,1,annual_report;company_website,core_confirmed,https://www.csig158.com/,https://money.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=11046238&stockid=600158,证据数量和独立来源满足核心候选要求。
+605099.SH,共创草坪,体育设施,L2,sports_facility;artificial_turf,3,1,company_qualification_page;company_website;official_sports_quality_programme,core_confirmed,https://www.ccgrass.com/,https://www.ccgrass.com/qualifications/fifa-preferred-provider/,证据数量和独立来源满足核心候选要求。
+002858.SZ,力盛体育,体育赛事,L2,sports_events;sports_operation,2,1,annual_report;company_website,core_confirmed,https://www.lishengsports.com/,https://vip.stock.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=10091257&stockid=002858,证据数量和独立来源满足核心候选要求。
+605299.SH,舒华体育,体育消费,L4,sports_consumption;fitness_equipment,2,1,annual_report;company_website,supporting_confirmed,https://www.shuhua.com/,https://static.cninfo.com.cn/finalpage/2026-03-11/1225004328.PDF,证据数量满足观察要求，但业务映射仍需控制仓位。
+000558.SZ,莱茵体育,体育运营,L2,sports_operation,1,0,company_website,single_source_only,https://www.lander.com.cn/,,缺少独立来源，需要人工补证。
+300651.SZ,金陵体育,体育器材,L2,sports_equipment;sports_facility,1,0,company_website,single_source_only,https://www.jlsports.com/,,缺少独立来源，需要人工补证。
+002587.SZ,奥拓电子,显示设备,L2,led_display;venue_display,3,0,company_case_page;company_product_page;company_website,company_sources_only,https://www.aoto.com/,https://en.aoto.com/products/sports/,有两条公司来源，仍需独立来源确认。
+300162.SZ,雷曼光电,显示设备,L2,led_display;sports_marketing,2,0,company_product_page;company_website,company_sources_only,https://www.ledman.com/,https://www.ledman.com/product-category/products/sports,有两条公司来源，仍需独立来源确认。
+300005.SZ,探路者,户外用品,L4,outdoor;sports_consumption;winter_sports,1,0,company_website,single_source_only,https://www.toread.com.cn/,,缺少独立来源，需要人工补证。
+002780.SZ,三夫户外,户外用品,L4,outdoor;sports_consumption;winter_sports,1,0,company_website,single_source_only,https://www.sanfo.com/,,缺少独立来源，需要人工补证。
+603908.SH,牧高笛,户外用品,L4,outdoor;sports_consumption,1,0,company_website,single_source_only,https://www.mobigarden.com.cn/,,缺少独立来源，需要人工补证。
+002832.SZ,比音勒芬,体育消费,L4,sports_consumption;golf_apparel,1,0,company_website,single_source_only,https://www.biemlf.com/,,缺少独立来源，需要人工补证。
+002181.SZ,粤传媒,传媒彩票,L3,media;lottery_attention,2,1,company_website;investor_relations_record,supporting_confirmed,https://www.gdcm.com.cn/,https://money.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=12077485&stockid=002181,证据数量满足观察要求，但业务映射仍需控制仓位。
+002878.SZ,元隆雅图,IP衍生品,L3,licensed_merchandise;ip_products,1,0,company_website,single_source_only,https://www.ylyato.com/,,缺少独立来源，需要人工补证。
+002400.SZ,省广集团,营销服务,L3,sports_marketing;media,1,0,company_website,single_source_only,https://www.gimc.cn/,,缺少独立来源，需要人工补证。

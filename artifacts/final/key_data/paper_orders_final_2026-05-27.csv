@@ -1,0 +1,4 @@
+decision_date,order_date,ticker,sina_symbol,company,industry,integrated_score,current_target_weight,final_target_weight,reference_close,target_shares,estimated_trade_value,expected_cost,board
+2026-05-26,2026-05-27,600060.SH,sh600060,海信视像,显示设备,2.155274764397647,0.1,0.1,26.8,3700,99160.0,128.908,main
+2026-05-26,2026-05-27,300162.SZ,sz300162,雷曼光电,显示设备,0.741130404259228,0.0391889117152405,0.05901922893298453,11.4,5100,58140.0,75.582,chi_next
+2026-05-26,2026-05-27,002587.SZ,sz002587,奥拓电子,显示设备,0.24295473852172794,0.0600227320370752,0.01934747414323033,7.17,2600,18642.0,24.2346,main

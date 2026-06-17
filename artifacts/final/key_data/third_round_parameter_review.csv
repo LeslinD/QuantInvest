@@ -1,0 +1,5 @@
+candidate,entry_days_before_event,exit_days_before_event,rankic_prior_weight,attention_z_cap,event_total_return,worldcup_2022_return,backtest_net_return,rolling_validation_net_return,validation_gap,backtest_trades,validation_trades,pass_gate,decision,decision_reason
+third_round_selected,90,10,0.65,1.0,0.08495112229999993,0.033465610900000005,0.06378321324399994,0.031744891769332075,0.03203832147466786,13,10,True,accept,样本外收益和历史收益同时满足要求。
+worldcup_t45_to_open,45,0,0.65,1.0,0.12083267019999992,0.0693471588,0.10208659647445512,0.006740969026244188,0.09534562744821093,13,10,False,reject,世界杯历史收益更高，但样本外差距过大。 净收益差距 9.53%。
+worldcup_t45_to_after_open,45,-5,0.65,1.0,0.08544518379999992,0.0339596724,0.07687316234799996,0.031281674083296906,0.04559148826470305,13,10,False,reject,历史总收益接近当前，但样本外差距超出门槛。 净收益差距 4.56%。
+worldcup_t30_to_after_open,30,-5,0.65,1.0,0.06977826269999993,0.0182927513,0.061040859779999956,0.032071758231367216,0.02896910154863274,13,10,True,reject,样本外差距可控，但历史事件收益低于当前方案。

@@ -1,0 +1,11 @@
+event_id,sport,event_name,event_date,layer_action,entry_days_before_event,exit_days_before_event,top_k,midterm_return,optimized_return,excess_vs_midterm,avoided_loss_vs_midterm,event_layer_reason
+FIFA_WC_2022_OPEN,football,2022 FIFA World Cup opening,2022-11-20,trade,90,10,3,0.0355828438,0.033465610900000005,-0.002117232899999995,0.0,足球世界杯商业链条清晰，A股主要映射显示设备和体育营销。
+CHENGDU_FISU_2023_OPEN,multi_sport_china,Chengdu FISU World University Games opening,2023-07-28,trade,90,10,3,-0.04829566469999999,0.011908049099999986,0.060203713799999975,0.0,国内举办的综合赛事更偏场馆、运营和本地体育产业链。
+HANGZHOU_ASIAD_2023_OPEN,multi_sport_china,Hangzhou Asian Games opening,2023-09-23,trade,90,10,3,-0.05087883160000001,0.0034110983999999854,0.05428992999999999,0.0,杭州亚运有国内关注度和场馆运营链条，适合作为国内综合赛事样本。
+AFC_ASIAN_CUP_2024_OPEN,football,AFC Asian Cup Qatar 2023 opening,2024-01-12,trade,90,10,3,0.015198188300000012,0.0,-0.015198188300000012,0.0,亚洲杯有足球关注，但中国市场商业映射弱于世界杯。
+UEFA_EURO_2024_OPEN,football,UEFA EURO 2024 opening,2024-06-14,trade,90,10,3,-0.02285618549999999,0.0,0.02285618549999999,0.0,欧洲杯适合作为海外足球关注度样本，但A股收入链条弱于世界杯。
+PARIS_OLYMPICS_2024_OPEN,multi_sport_global,Paris 2024 Olympic Games opening,2024-07-26,avoid,90,10,5,-0.09646842600000002,0.0,0.09646842600000002,0.09646842600000002,境外综合赛事的社会热度高，但当前A股候选池缺少稳定收入链条。
+HARBIN_ASIAN_WINTER_2025_OPEN,winter_sport_china,Harbin 2025 Asian Winter Games opening,2025-02-07,trade,30,0,1,0.09839037540000004,0.0132079964,-0.08518237900000003,0.0,国内冬季赛事更适合检验户外、冰雪和体育消费链条。
+FIFA_CLUB_WORLD_CUP_2025_OPEN,football,FIFA Club World Cup 2025 opening,2025-06-14,trade,90,10,3,0.004883346300000029,0.003204036,-0.0016793103000000294,0.0,世俱杯国内关注度低于世界杯，但海信官方合作使显示设备链条更明确。
+NATIONAL_GAMES_2025_OPEN,multi_sport_china,15th National Games of China opening,2025-11-09,trade,90,10,3,0.04337723359999997,0.019754331499999958,-0.02362290210000001,0.0,全运会是国内综合赛事样本，A股映射更偏运营、设施和消费。
+MILANO_CORTINA_2026_OPEN,winter_sport_global,Milano Cortina 2026 Winter Olympics opening,2026-02-06,trade,45,10,1,0.0341144725,0.0,-0.0341144725,0.0,境外冬奥对A股映射弱于国内冰雪赛事，主要作为冬季关注度样本。

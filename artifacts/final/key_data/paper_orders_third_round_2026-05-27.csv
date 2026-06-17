@@ -1,0 +1,2 @@
+decision_date,order_date,ticker,sina_symbol,company,industry,integrated_score,current_target_weight,final_target_weight,reference_close,target_shares,estimated_trade_value,expected_cost,board,third_round_target_weight,third_round_decision,third_round_reason
+2026-05-26,2026-05-27,600060.SH,sh600060,海信视像,显示设备,2.155274764397647,0.1,0.1,26.8,3700,99160.0,128.908,main,0.05,keep_direct_core,公司证据满足核心候选要求，短期涨幅规则和市场对冲继续生效。

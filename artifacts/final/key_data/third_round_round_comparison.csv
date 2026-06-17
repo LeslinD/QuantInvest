@@ -1,0 +1,5 @@
+round,historical_event_return,holding_return,data_scope,manual_data_pending,company_evidence_confirmed
+midterm,0.013047352100000041,-0.0525034199,subjective_event_book,,
+first_round,0.08495112229999993,-0.0033844529,expanded_events_and_factor_backtest,65,
+second_round,0.08495112229999993,0.0002557518243427917,direct_core_holding_and_market_hedge,65,
+third_round,0.08495112229999993,0.0002557518243427917,event_layer_audit_attention_matrix_company_second_sources,54,6

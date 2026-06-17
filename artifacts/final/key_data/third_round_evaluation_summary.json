@@ -1,0 +1,41 @@
+{
+  "as_of_date": "2026-05-26",
+  "attention_manual_required_count": 54,
+  "company_core_confirmed_count": 4,
+  "company_sources_only_count": 2,
+  "company_supporting_confirmed_count": 2,
+  "hold_end_date": "2026-06-16",
+  "output_files": {
+    "attention_evidence_matrix": "/workspace/coursework/QuantInvest/outputs/final/third_round_attention_evidence_matrix.csv",
+    "company_second_source_audit": "/workspace/coursework/QuantInvest/outputs/final/third_round_company_second_source_audit.csv",
+    "decision_audit": "/workspace/coursework/QuantInvest/outputs/final/third_round_decision_audit.csv",
+    "event_layer_audit": "/workspace/coursework/QuantInvest/outputs/final/third_round_event_layer_audit.csv",
+    "holding_comparison": "/workspace/coursework/QuantInvest/outputs/final/third_round_holding_comparison_2026-05-27_to_2026-06-16.csv",
+    "orders": "/workspace/coursework/QuantInvest/outputs/final/paper_orders_third_round_2026-05-27.csv",
+    "parameter_review": "/workspace/coursework/QuantInvest/outputs/final/third_round_parameter_review.csv",
+    "round_comparison": "/workspace/coursework/QuantInvest/outputs/final/third_round_round_comparison.csv",
+    "summary": "/workspace/coursework/QuantInvest/outputs/final/third_round_evaluation_summary.json"
+  },
+  "selected_parameter": {
+    "attention_z_cap": 1.0,
+    "backtest_net_return": 0.06378321324399994,
+    "backtest_trades": 13,
+    "candidate": "third_round_selected",
+    "decision": "accept",
+    "decision_reason": "样本外收益和历史收益同时满足要求。",
+    "entry_days_before_event": 90,
+    "event_total_return": 0.08495112229999993,
+    "exit_days_before_event": 10,
+    "pass_gate": true,
+    "rankic_prior_weight": 0.65,
+    "rolling_validation_net_return": 0.031744891769332075,
+    "validation_gap": 0.03203832147466786,
+    "validation_trades": 10,
+    "worldcup_2022_return": 0.033465610900000005
+  },
+  "third_round_event_total_return": 0.08495112229999993,
+  "third_round_holding_return": 0.0002557518243427917,
+  "third_round_order_count": 1,
+  "third_round_positive": true,
+  "third_round_total_long_weight": 0.05
+}

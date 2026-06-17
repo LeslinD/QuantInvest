@@ -1,0 +1,54 @@
+{
+  "days_to_event": 16,
+  "event_id": "FIFA_WC_2026_OPEN",
+  "first_round_holding_return": -0.0033844529,
+  "hedge": {
+    "benchmark_name": "中证500",
+    "benchmark_symbol": "sh000905",
+    "cost_rate_per_side": 5e-05,
+    "enabled": true,
+    "hedge_notional_weight": 0.02738117324860012,
+    "hedge_scale": 0.5476234649720024,
+    "reason": "宽基指数短期涨幅偏高，按涨幅强度使用中证500股指期货空头代理降低市场回撤风险。",
+    "ret20": 0.043809877197760194,
+    "ret5": 0.0035550755649143007,
+    "ret60": 0.01536899363581079,
+    "triggered": true
+  },
+  "hold_end_date": "2026-06-16",
+  "kept_tickers": [
+    "600060.SH"
+  ],
+  "long_exposure": 0.05,
+  "manual_attention_pending_count": 65,
+  "midterm_holding_return": -0.0525034199,
+  "output_files": {
+    "chart_data_dir": "/workspace/coursework/QuantInvest/outputs/final/chart_data",
+    "decision_audit": "/workspace/coursework/QuantInvest/outputs/final/second_round_decision_audit.csv",
+    "defect_analysis": "/workspace/coursework/QuantInvest/outputs/final/second_round_defect_analysis.csv",
+    "experiment_comparison": "/workspace/coursework/QuantInvest/outputs/final/second_round_experiment_comparison.csv",
+    "holding_comparison": "/workspace/coursework/QuantInvest/outputs/final/second_round_holding_comparison_2026-05-27_to_2026-06-16.csv",
+    "holding_summary": "/workspace/coursework/QuantInvest/outputs/final/second_round_holding_summary.csv",
+    "requirement_coverage": "/workspace/coursework/QuantInvest/outputs/final/second_round_requirement_coverage.csv",
+    "risk_scenarios": "/workspace/coursework/QuantInvest/outputs/final/second_round_risk_scenarios.csv",
+    "second_round_orders": "/workspace/coursework/QuantInvest/outputs/final/paper_orders_second_round_2026-05-27.csv",
+    "stock_timing": "/workspace/coursework/QuantInvest/outputs/final/second_round_stock_timing.csv",
+    "summary": "/workspace/coursework/QuantInvest/outputs/final/second_round_evaluation_summary.json",
+    "target_alignment": "/workspace/coursework/QuantInvest/outputs/final/second_round_target_alignment.csv",
+    "universe_holding_scan": "/workspace/coursework/QuantInvest/outputs/final/second_round_universe_holding_scan.csv"
+  },
+  "removed_tickers": [
+    "300162.SZ",
+    "002587.SZ"
+  ],
+  "requirement_gap_count": 2,
+  "requirement_pass_count": 7,
+  "second_round_excess_vs_first_round": 0.0036402047243427917,
+  "second_round_excess_vs_midterm": 0.052759171724342795,
+  "second_round_hedge_return": 0.0004754922243427917,
+  "second_round_hedged_return": 0.0002557518243427917,
+  "second_round_long_return": -0.00021974039999999998,
+  "second_round_positive": true,
+  "target_alignment_pass_count": 4,
+  "target_alignment_review_count": 1
+}

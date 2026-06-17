@@ -1,0 +1,4 @@
+ticker,company,industry,first_round_weight,third_round_weight,evidence_status,relation_types,decision,reason
+600060.SH,海信视像,显示设备,0.1,0.05,core_confirmed,official_fifa_sponsor;display_device;sports_marketing,keep_direct_core,公司证据满足核心候选要求，短期涨幅规则和市场对冲继续生效。
+300162.SZ,雷曼光电,显示设备,0.0590192289329845,0.0,company_sources_only,led_display;sports_marketing,wait_for_attention_confirmation,热榜或论坛数据没有导入，不能把间接受益标的加入模拟持仓。
+002587.SZ,奥拓电子,显示设备,0.0193474741432303,0.0,company_sources_only,led_display;venue_display,wait_for_attention_confirmation,热榜或论坛数据没有导入，不能把间接受益标的加入模拟持仓。

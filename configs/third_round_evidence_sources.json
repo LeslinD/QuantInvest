@@ -1,0 +1,166 @@
+{
+  "attention_source_methods": [
+    {
+      "source_name": "baidu_index",
+      "object_type": "event",
+      "automation_level": "manual_import",
+      "method": "Use index.baidu.com to query event keywords, save the 7/30/90-day screen or export if available, and enter raw_value plus screenshot path.",
+      "decision_use": "public_search_interest",
+      "source_url": "https://index.baidu.com/"
+    },
+    {
+      "source_name": "wechat_index",
+      "object_type": "event",
+      "automation_level": "manual_import",
+      "method": "Use the WeChat Index mini program or WeChat search entry to query event keywords, record the daily index and screenshot.",
+      "decision_use": "domestic_social_spread",
+      "source_url": "https://weixin.qq.com/"
+    },
+    {
+      "source_name": "news_count_gdelt",
+      "object_type": "event",
+      "automation_level": "semi_automatic",
+      "method": "Use GDELT DOC 2.0 timelinevolraw for keyword-level article counts when the public API is reachable.",
+      "decision_use": "news_coverage",
+      "source_url": "https://api.gdeltproject.org/api/v2/doc/doc"
+    },
+    {
+      "source_name": "eastmoney_hot_rank",
+      "object_type": "stock",
+      "automation_level": "manual_or_optional_akshare",
+      "method": "Use Eastmoney popularity ranking directly or AKShare stock_hot_rank_latest_em when AKShare is installed.",
+      "decision_use": "investor_attention",
+      "source_url": "https://data.eastmoney.com/"
+    },
+    {
+      "source_name": "forum_count",
+      "object_type": "stock",
+      "automation_level": "manual_import",
+      "method": "Use Eastmoney Guba, Xueqiu, or a paid data vendor to record post count or discussion heat for each stock.",
+      "decision_use": "retail_discussion",
+      "source_url": "https://guba.eastmoney.com/"
+    }
+  ],
+  "company_second_sources": {
+    "600060.SH": [
+      {
+        "source_url": "https://inside.fifa.com/media-releases/hisense-continues-long-standing-partnership-world-cup-26-sponsor",
+        "source_type": "official_sports_rights",
+        "published_at": "2025-09-05",
+        "claim": "FIFA confirmed Hisense as a FIFA World Cup 26 sponsor."
+      },
+      {
+        "source_url": "https://www.hisense-b2b.com/en/hisense-becomes-official-fifa-world-cup-26-sponsor",
+        "source_type": "company_press_release",
+        "published_at": "2025-09-05",
+        "claim": "Hisense confirms the FIFA World Cup 26 sponsorship on its own B2B site."
+      }
+    ],
+    "605099.SH": [
+      {
+        "source_url": "https://www.ccgrass.com/qualifications/fifa-preferred-provider/",
+        "source_type": "company_qualification_page",
+        "published_at": "2016-12-31",
+        "claim": "CCGrass states that it is a FIFA Preferred Provider for artificial turf."
+      },
+      {
+        "source_url": "https://inside.fifa.com/news/fifa-quality-programme-announces-companies-as-fifa-preferred-providers-for",
+        "source_type": "official_sports_quality_programme",
+        "published_at": "2025-07-01",
+        "claim": "FIFA Quality Programme lists CoCreation Grass Co., Ltd. as a Preferred Provider for Football Turf."
+      }
+    ],
+    "002587.SZ": [
+      {
+        "source_url": "https://en.aoto.com/products/sports/",
+        "source_type": "company_product_page",
+        "published_at": "2026-05-26",
+        "claim": "AOTO describes LED display solutions for sporting events and stadium scenes."
+      },
+      {
+        "source_url": "https://en.aoto.com/market/sports-arenas/",
+        "source_type": "company_case_page",
+        "published_at": "2026-05-26",
+        "claim": "AOTO lists sports and arena LED display cases, including football stadium display use."
+      }
+    ],
+    "300162.SZ": [
+      {
+        "source_url": "https://www.ledman.com/product-category/products/sports",
+        "source_type": "company_product_page",
+        "published_at": "2026-05-26",
+        "claim": "Ledman lists sports LED products, including court perimeter display panels."
+      },
+      {
+        "source_url": "https://www.ledman.com/",
+        "source_type": "company_website",
+        "published_at": "2026-05-26",
+        "claim": "Ledman company site supports the LED display business evidence."
+      }
+    ],
+    "600158.SH": [
+      {
+        "source_url": "https://www.csig158.com/",
+        "source_type": "company_website",
+        "published_at": "2026-05-26",
+        "claim": "China Sports Industry Group describes its sports industry operation coverage."
+      },
+      {
+        "source_url": "https://money.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=11046238&stockid=600158",
+        "source_type": "annual_report",
+        "published_at": "2025-04-29",
+        "claim": "The annual report includes subsidiaries and operations related to sports events and sports services."
+      }
+    ],
+    "002858.SZ": [
+      {
+        "source_url": "https://www.lishengsports.com/",
+        "source_type": "company_website",
+        "published_at": "2026-05-26",
+        "claim": "Lisheng Sports company site supports sports event operation evidence."
+      },
+      {
+        "source_url": "https://vip.stock.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=10091257&stockid=002858",
+        "source_type": "annual_report",
+        "published_at": "2024-04-25",
+        "claim": "The annual report describes sports event operation, clubs, venues, sports equipment, marketing, and digital sports."
+      }
+    ],
+    "605299.SH": [
+      {
+        "source_url": "https://www.shuhua.com/",
+        "source_type": "company_website",
+        "published_at": "2026-05-26",
+        "claim": "Shuhua company site supports fitness equipment and sports consumption evidence."
+      },
+      {
+        "source_url": "https://static.cninfo.com.cn/finalpage/2026-03-11/1225004328.PDF",
+        "source_type": "annual_report",
+        "published_at": "2026-03-11",
+        "claim": "The annual report describes fitness equipment and display rack products."
+      }
+    ],
+    "002181.SZ": [
+      {
+        "source_url": "https://www.gdcm.com.cn/",
+        "source_type": "company_website",
+        "published_at": "2026-05-26",
+        "claim": "Guangzhou Daily Media company site supports media and advertising business evidence."
+      },
+      {
+        "source_url": "https://money.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=12077485&stockid=002181",
+        "source_type": "investor_relations_record",
+        "published_at": "2026-04-10",
+        "claim": "The investor relations record mentions 2026 World Cup opportunities in paid event information and sports lottery training."
+      }
+    ],
+    "002878.SZ": [
+      {
+        "source_url": "https://www.ylyato.com/",
+        "source_type": "company_website",
+        "published_at": "2026-05-26",
+        "claim": "Yuanlong Yato company site supports promotional and IP product evidence."
+      }
+    ]
+  }
+}

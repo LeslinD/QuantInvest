@@ -28,6 +28,13 @@
     "direct_core_relation_types": ["official_fifa_sponsor"],
     "max_long_exposure_without_manual_heat": 0.10,
     "delay_non_core_when_manual_heat_pending": true,
+    "direct_core_timing": {
+      "enabled": true,
+      "ret5_reduce_threshold": 0.08,
+      "ret20_reduce_threshold": 0.12,
+      "overheat_weight_scale": 0.50,
+      "min_weight_after_scale": 0.03
+    },
     "market_hedge": {
       "enabled": true,
       "benchmark_symbol": "sh000905",
@@ -35,6 +42,7 @@
       "min_days_to_event": 0,
       "trigger_ret20_min": 0.03,
       "trigger_ret60_min": 0.0,
+      "scale_ret20_full_hedge": 0.08,
       "notional_cap": 0.10,
       "cost_rate_per_side": 0.00005
     }
@@ -47,5 +55,5 @@
     "min_benchmark_wins": 5,
     "max_cost_to_initial_cash": 0.005
   },
-  "reason": "第一轮在扩展事件库和股票池后生成模拟订单，再用综合因子和风险约束重排仓位；新增订单必须来自已通过事件链条和交易约束的候选池。"
+  "reason": "第一轮在扩展事件库和股票池后生成模拟订单，并用综合因子和风险约束重排仓位；新增订单必须来自已通过事件链条和交易约束的候选池。"
 }

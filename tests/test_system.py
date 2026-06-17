@@ -19,11 +19,23 @@ from quant_sports_event.llm_agent import RuleBasedEventAgent
 from quant_sports_event.portfolio import build_target_weights
 from quant_sports_event.research_loop import run_research_loop
 from quant_sports_event.second_round import (
+    build_defect_analysis,
     build_second_round_long_orders,
+    build_experiment_comparison,
+    build_requirement_coverage,
+    build_risk_scenarios,
+    build_target_alignment,
+    build_universe_holding_scan,
     hedge_decision,
     hedge_return,
 )
 from quant_sports_event.super_factors import build_super_factor_panel, validate_super_factor_weights
+from quant_sports_event.third_round import (
+    build_attention_evidence_matrix,
+    build_company_second_source_audit,
+    build_third_round_orders,
+    classify_event_layer,
+)
 from quant_sports_event.validation import EvidenceValidator
 
 
@@ -525,6 +537,39 @@ class SecondRoundTests(unittest.TestCase):
         delayed = audit[audit["ticker"] == "300162.SZ"].iloc[0]
         self.assertEqual(delayed["decision"], "delay_until_attention_confirmed")
 
+    def test_long_orders_scale_direct_core_after_short_runup(self):
+        orders = pd.DataFrame(
+            [
+                {"ticker": "600060.SH", "company": "海信视像", "industry": "显示设备", "final_target_weight": 0.10},
+            ]
+        )
+        universe = [
+            {"ticker": "600060.SH", "relation_types": ["official_fifa_sponsor", "display_device"]},
+        ]
+        overlay = {
+            "direct_core_relation_types": ["official_fifa_sponsor"],
+            "max_long_exposure_without_manual_heat": 0.10,
+            "delay_non_core_when_manual_heat_pending": True,
+            "direct_core_timing": {
+                "enabled": True,
+                "ret5_reduce_threshold": 0.08,
+                "ret20_reduce_threshold": 0.12,
+                "overheat_weight_scale": 0.50,
+                "min_weight_after_scale": 0.03,
+            },
+        }
+        second, audit = build_second_round_long_orders(
+            orders,
+            universe,
+            overlay=overlay,
+            days_to_event=381,
+            manual_attention_pending_count=1,
+            stock_timing_by_ticker={"600060.SH": {"ret5": 0.09, "ret20": 0.06, "ret60": 0.02}},
+        )
+        self.assertAlmostEqual(float(second.loc[0, "second_round_target_weight"]), 0.05)
+        self.assertEqual(audit.loc[0, "decision"], "scale_direct_core_overheat")
+        self.assertAlmostEqual(float(audit.loc[0, "ret5_asof"]), 0.09)
+
     def test_hedge_triggers_after_index_runup(self):
         decision = hedge_decision(
             overlay={
@@ -535,6 +580,7 @@ class SecondRoundTests(unittest.TestCase):
                     "benchmark_name": "中证500",
                     "trigger_ret20_min": 0.03,
                     "trigger_ret60_min": 0.0,
+                    "scale_ret20_full_hedge": 0.08,
                     "notional_cap": 0.10,
                     "cost_rate_per_side": 0.00005,
                 },
@@ -544,7 +590,8 @@ class SecondRoundTests(unittest.TestCase):
             days_to_event=381,
         )
         self.assertTrue(decision["triggered"])
-        self.assertAlmostEqual(decision["hedge_notional_weight"], 0.10)
+        self.assertAlmostEqual(decision["hedge_notional_weight"], 0.05)
+        self.assertAlmostEqual(decision["hedge_scale"], 0.50)
 
     def test_short_index_hedge_gains_when_index_falls(self):
         frame = pd.DataFrame(
@@ -563,6 +610,275 @@ class SecondRoundTests(unittest.TestCase):
         )
         self.assertGreater(ret, 0)
         self.assertEqual(detail.loc[0, "strategy"], "second_round_hedge")
+
+    def test_target_alignment_marks_manual_heat_gap(self):
+        alignment = build_target_alignment(
+            first_round_summary={"event_optimized_total_return": 0.08, "event_midterm_total_return": 0.01},
+            decision_audit=pd.DataFrame(
+                [
+                    {
+                        "ticker": "600060.SH",
+                        "relation_types": "display_device;official_fifa_sponsor",
+                        "decision": "keep",
+                    },
+                    {
+                        "ticker": "300162.SZ",
+                        "relation_types": "led_display",
+                        "decision": "delay_until_attention_confirmed",
+                    },
+                ]
+            ),
+            hedge_dec={
+                "triggered": True,
+                "benchmark_name": "中证500",
+                "hedge_notional_weight": 0.10,
+                "ret20": 0.04,
+            },
+            summary_rows=pd.DataFrame(
+                [
+                    {"strategy": "first_round", "return": -0.003},
+                    {"strategy": "second_round_hedged", "return": 0.001},
+                ]
+            ),
+            manual_attention_pending_count=5,
+        )
+        self.assertIn("needs_manual_data", set(alignment["status"]))
+        self.assertGreaterEqual(int((alignment["status"] == "pass").sum()), 4)
+
+    def test_experiment_comparison_separates_filter_and_hedge(self):
+        experiments = build_experiment_comparison(
+            midterm_return=-0.05,
+            first_round_return=-0.003,
+            second_long_return=-0.0005,
+            hedge_return_value=0.0017,
+        )
+        final = experiments[experiments["experiment"] == "direct_chain_with_market_hedge"].iloc[0]
+        chain_only = experiments[experiments["experiment"] == "direct_chain_only"].iloc[0]
+        self.assertGreater(float(final["return"]), 0)
+        self.assertGreater(float(chain_only["increment_vs_first_round"]), 0)
+
+    def test_universe_scan_flags_positive_weak_link(self):
+        class Provider:
+            def fetch_daily(self, symbol, end):
+                return pd.DataFrame(
+                    {
+                        "date": pd.to_datetime(["2026-05-27", "2026-06-16"]),
+                        "open": [10.0, 11.0],
+                        "close": [10.5, 11.2],
+                    }
+                )
+
+        scan = build_universe_holding_scan(
+            [
+                {
+                    "ticker": "A.SH",
+                    "sina_symbol": "sha",
+                    "name": "A",
+                    "industry": "x",
+                    "relation_types": ["sports_consumption"],
+                    "base_exposure": 0.4,
+                }
+            ],
+            provider=Provider(),
+            start_date="2026-05-27",
+            end_date="2026-06-16",
+        )
+        self.assertGreater(float(scan.loc[0, "period_return"]), 0)
+        self.assertIn("不能用事后涨幅加仓", scan.loc[0, "decision_note"])
+
+    def test_risk_scenarios_include_hedge_drag(self):
+        scenarios = build_risk_scenarios(
+            first_round_return=-0.003,
+            second_long_return=-0.0005,
+            hedge_weight=0.10,
+            hedge_cost_rate_per_side=0.00005,
+            actual_index_return=-0.017,
+        )
+        rebound = scenarios[scenarios["scenario"] == "market_rebound_plus_2pct"].iloc[0]
+        drawdown = scenarios[scenarios["scenario"] == "market_drawdown_minus_2pct"].iloc[0]
+        self.assertLess(float(rebound["hedge_leg_return"]), 0)
+        self.assertGreater(float(drawdown["hedge_leg_return"]), 0)
+
+    def test_requirement_coverage_surfaces_manual_gap(self):
+        coverage = build_requirement_coverage(
+            first_round_summary={"event_optimized_total_return": 0.08, "event_midterm_total_return": 0.01},
+            decision_audit=pd.DataFrame(
+                [
+                    {"decision": "keep", "second_round_weight": 0.10},
+                    {"decision": "delay_until_attention_confirmed", "second_round_weight": 0.0},
+                ]
+            ),
+            experiment_comparison=pd.DataFrame([{"experiment": str(i)} for i in range(5)]),
+            risk_scenarios=pd.DataFrame([{"scenario": str(i)} for i in range(6)]),
+            universe_scan=pd.DataFrame(
+                [{"period_return": 0.1, "direct_worldcup_link": False}]
+            ),
+            target_alignment=pd.DataFrame([{"status": "pass"}]),
+            manual_attention_pending_count=65,
+            second_round_return=0.001,
+        )
+        self.assertIn("needs_manual_data", set(coverage["status"]))
+        self.assertIn("partial", set(coverage["status"]))
+        self.assertGreaterEqual(int((coverage["status"] == "pass").sum()), 5)
+
+    def test_defect_analysis_reports_hedge_dependence(self):
+        defects = build_defect_analysis(
+            second_long_return=-0.0005,
+            hedge_dec={"ret20": 0.04, "hedge_scale": 0.5},
+            risk_scenarios=pd.DataFrame(
+                [{"scenario": "market_rebound_plus_2pct", "total_return": -0.0015}]
+            ),
+            universe_scan=pd.DataFrame(
+                [{"period_return": 0.1, "direct_worldcup_link": False}]
+            ),
+            manual_attention_pending_count=65,
+        )
+        self.assertIn("对冲仓位容易掩盖选股逻辑", set(defects["defect"]))
+        self.assertIn("间接链条热度证据不足", set(defects["defect"]))
+
+
+class ThirdRoundTests(unittest.TestCase):
+    def test_event_layer_classification_separates_worldcup_and_olympics(self):
+        worldcup = {
+            "event_id": "FIFA_WC_2026_OPEN",
+            "sport": "football",
+            "event_date": "2026-06-11",
+            "known_at": "2026-05-26",
+            "source_url": "https://example.com",
+            "certainty": 1.0,
+            "domestic_attention_score": 0.95,
+            "stock_market_fit": 0.95,
+            "chain_weights": {"official_fifa_sponsor": 1.0},
+        }
+        olympics = {
+            "event_id": "PARIS_OLYMPICS_2024_OPEN",
+            "sport": "multi_sport_global",
+            "event_date": "2024-07-26",
+            "known_at": "2024-01-01",
+            "source_url": "https://example.com",
+            "certainty": 1.0,
+            "domestic_attention_score": 0.95,
+            "stock_market_fit": 0.40,
+            "chain_weights": {"media": 0.4},
+        }
+        self.assertEqual(classify_event_layer(worldcup)["event_layer"], "S")
+        self.assertEqual(classify_event_layer(worldcup)["financial_action"], "core_trade")
+        self.assertEqual(classify_event_layer(olympics)["financial_action"], "observe_only")
+
+    def test_company_second_source_audit_confirms_core_stock(self):
+        universe = [
+            {
+                "ticker": "600060.SH",
+                "name": "海信视像",
+                "industry": "显示设备",
+                "base_exposure": 0.8,
+                "relation_types": ["official_fifa_sponsor", "display_device"],
+                "evidence": [
+                    {
+                        "source_url": "https://inside.fifa.com/a",
+                        "source_type": "official_sports_rights",
+                        "published_at": "2025-09-05",
+                        "claim": "supported",
+                    }
+                ],
+            }
+        ]
+        config = {
+            "company_second_sources": {
+                "600060.SH": [
+                    {
+                        "source_url": "https://hisense.example/a",
+                        "source_type": "company_press_release",
+                        "published_at": "2025-09-05",
+                        "claim": "supported",
+                    }
+                ]
+            }
+        }
+        audit = build_company_second_source_audit(universe, config, as_of_date="2026-05-26")
+        self.assertEqual(audit.loc[0, "evidence_status"], "core_confirmed")
+        self.assertEqual(int(audit.loc[0, "usable_evidence_count"]), 2)
+
+    def test_attention_matrix_records_manual_sources_without_values(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / "data" / "manual").mkdir(parents=True)
+            pd.DataFrame(
+                [
+                    {
+                        "as_of_date": "2026-05-26",
+                        "event_id": "FIFA_WC_2026_OPEN",
+                        "source_name": "baidu_index",
+                        "query_keyword": "2026世界杯",
+                        "raw_value": "",
+                        "normalized_value": "",
+                        "source_url_or_file": "",
+                        "missing_reason": "pending",
+                    }
+                ]
+            ).to_csv(root / "data" / "manual" / "event_heat_import_template.csv", index=False)
+            pd.DataFrame(
+                [
+                    {
+                        "as_of_date": "2026-05-26",
+                        "ticker": "600060.SH",
+                        "source_name": "eastmoney_hot_rank",
+                        "rank": "",
+                        "rank_change": "",
+                        "raw_value": "",
+                        "normalized_value": "",
+                        "source_url_or_file": "",
+                        "missing_reason": "pending",
+                    }
+                ]
+            ).to_csv(root / "data" / "manual" / "stock_hot_rank_import_template.csv", index=False)
+            matrix = build_attention_evidence_matrix(
+                [{"event_id": "FIFA_WC_2026_OPEN", "event_name": "2026 FIFA World Cup opening"}],
+                [{"ticker": "600060.SH"}],
+                root,
+                {"attention_source_methods": []},
+                as_of_date="2026-05-26",
+            )
+        self.assertIn("manual_required", set(matrix["status"]))
+        self.assertIn("amount_shock", set(matrix["source_name"]))
+
+    def test_third_round_orders_do_not_add_non_core_without_heat(self):
+        first_orders = pd.DataFrame(
+            [
+                {"ticker": "600060.SH", "company": "海信视像", "industry": "显示设备", "final_target_weight": 0.10},
+                {"ticker": "300162.SZ", "company": "雷曼光电", "industry": "显示设备", "final_target_weight": 0.05},
+            ]
+        )
+        second_orders = pd.DataFrame(
+            [
+                {
+                    "ticker": "600060.SH",
+                    "company": "海信视像",
+                    "industry": "显示设备",
+                    "final_target_weight": 0.10,
+                    "second_round_target_weight": 0.05,
+                }
+            ]
+        )
+        company_audit = pd.DataFrame(
+            [
+                {
+                    "ticker": "600060.SH",
+                    "evidence_status": "core_confirmed",
+                    "relation_types": "display_device;official_fifa_sponsor",
+                },
+                {"ticker": "300162.SZ", "evidence_status": "supporting_confirmed", "relation_types": "led_display"},
+            ]
+        )
+        attention = pd.DataFrame(
+            [
+                {"object_type": "stock", "object_id": "600060.SH", "source_name": "amount_shock", "status": "available"},
+                {"object_type": "stock", "object_id": "300162.SZ", "source_name": "eastmoney_hot_rank", "status": "manual_required"},
+            ]
+        )
+        third, decisions = build_third_round_orders(first_orders, second_orders, company_audit, attention)
+        self.assertEqual(third["ticker"].tolist(), ["600060.SH"])
+        self.assertEqual(decisions[decisions["ticker"] == "300162.SZ"].iloc[0]["decision"], "wait_for_attention_confirmation")
 
 
 if __name__ == "__main__":

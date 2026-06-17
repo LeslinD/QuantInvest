@@ -1,0 +1,5 @@
+experiment,description,total_return,excess_vs_full_model,positive_event_count,negative_event_count,trade_count
+final_full_model,事件分层、低适配剔除和当前约束全部启用,0.08495112229999993,0.0,6,0,13
+no_event_layer_rules,取消事件分层窗口和剔除层，所有事件使用基础参数,0.04915044839999995,-0.03580067389999998,4,0,9
+no_low_fit_filter,保留其他分层规则，但强制交易境外综合赛事,0.03187323229999994,-0.05307788999999999,6,1,18
+no_fit_gate,取消事件适配和标的暴露门槛,0.07703196159999998,-0.007919160699999955,8,2,50
